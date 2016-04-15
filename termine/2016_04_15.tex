@@ -1,0 +1,64 @@
+\termin{15.04.2016}
+
+\subsection{Standardbasis}
+\mdf{Beispiel}
+Die Standardbasis des $\mathbb{R}^n$ ist die Menge der Vektoren
+\begin{align*}
+	v_1 = \begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}, v_2 = \begin{pmatrix}0\\1\\0\\\vdots\\0\end{pmatrix}, \dots, v_n = \begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}
+\end{align*}
+
+$v_1,\dots,v_n$ sind linear unabhängig (trivial).
+
+$v_1,\dots,v_n$ bilden ein Erzeugendensystem von $\mathbb{R}^n$, denn jeder Vektor $x = \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}$ lässt sich schreiben als
+\begin{align*}
+	x = \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} = x_1\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix} + x_2\begin{pmatrix}0\\1\\0\\\vdots\\0\end{pmatrix} +\dots+x_n\begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}
+\end{align*}
+
+Konkret: Standardbasis von $\mathbb{R}^2\,:\,v_1=\begin{pmatrix}1\\0\end{pmatrix},v_2=\begin{pmatrix}0\\1\end{pmatrix}$.
+
+Eine andere Basis des $\mathbb{R}^2$ ist $v_1=\begin{pmatrix}2\\0\end{pmatrix},v_2=\begin{pmatrix}0\\1\end{pmatrix}$. Hier lässt sich jeder Vektor $x = \begin{pmatrix}x_1\\x_2\end{pmatrix}$ schreiben als $x = \begin{pmatrix}x_1\\x_2\end{pmatrix} = \frac{x_1}{2}\cdot\begin{pmatrix}2\\0\end{pmatrix} + x_2 \cdot\begin{pmatrix}0\\1\end{pmatrix}$.
+
+\mdf{Beispiel}
+Es seien $v_1 = \begin{pmatrix}3\\5\\2\end{pmatrix}, v_2 = \begin{pmatrix}4\\0\\1\end{pmatrix}, v_3 = \begin{pmatrix}2\\2\\1\end{pmatrix}$.
+\begin{align*}
+	\text{span}(v_2, v_3) = \left\{\lambda _1 \begin{pmatrix}4\\0\\1\end{pmatrix} + \lambda _2 \begin{pmatrix}2\\2\\1\end{pmatrix} \,\Bigg|\, \lambda _1, \lambda _2 \in \mathbb{R} \right\}
+\end{align*}
+
+Z.B. ist $\begin{pmatrix}4\\2\\1,5\end{pmatrix} \in \text{span}(v_2, v_3)$, da $\begin{pmatrix}4\\2\\1,5\end{pmatrix} = \frac{1}{2} \begin{pmatrix}4\\0\\1\end{pmatrix} + 1 \begin{pmatrix}2\\2\\1\end{pmatrix}$.
+
+\vspace{0.3cm}
+
+Frage: Liegt $v_1$ in $\text{span}(v_2,v_3)$?
+
+Antwort: Nur dann, wenn es $\lambda,\mu \in \mathbb{R}$ gibt mit $v_1 = \lambda v_2 + \mu v_3$, also
+\begin{alignat*}{8}
+\text{I}\quad & 4 & \lambda & \enspace+\enspace & 2 & \mu & \enspace=\enspace & 3 \\
+\text{II}\quad &  &         &   & 2 & \mu & = & 5 \\
+\text{III}\quad & & \lambda & \enspace+\enspace &   & \mu & \enspace=\enspace & 2
+\end{alignat*}
+
+Das ist ein lineares Gleichungssystem (mehr dazu in Kapitel 3). Aus II folgt $\mu = \frac{5}{2}$, in III eingesetzt ergibt sich $\lambda = -\frac{1}{2}$. Einsetzen in I bestätigt unsere Lösung, also liegt $v_1 \in \text{span}(v_2,v_3)$.
+
+\vspace{0.5cm}
+
+Es sei folgende Basis von $\mathbb{R}^3$ gegeben:
+\begin{align*}
+	v_1 = \begin{pmatrix}1\\1\\1\end{pmatrix}, v_2 = \begin{pmatrix}1\\2\\3\end{pmatrix}, v_3 = \begin{pmatrix}2\\-1\\1\end{pmatrix}
+\end{align*}
+
+Wir wollen nun $x = \begin{pmatrix}1\\-2\\5\end{pmatrix}$ durch $v_1,v_2,v_3$ ausdrücken, also $\lambda _1, \lambda _2, \lambda _3 \in \mathbb{R}$ finden, so dass $\lambda _1 v_1 + \lambda _2 v_2 + \lambda _3 v_3 = x$.
+
+\begin{alignat*}{8}
+\text{I}\quad & \lambda _1 & \enspace+\enspace & \lambda _2 & \enspace+\enspace & 2 \lambda _3 & \enspace=\enspace & 1 \\
+\text{II}\quad & \lambda _1 & \enspace+\enspace & 2 \lambda _2 & \enspace-\enspace & \lambda _3 & \enspace=\enspace & -2 \\
+\text{III}\quad & \lambda _1 & \enspace+\enspace & 3 \lambda _2 & \enspace+\enspace & \lambda _3 & \enspace=\enspace & 5
+\end{alignat*}
+
+Es ergibt sich $\lambda _1 = -6, \lambda _2 = 3, \lambda _3 = 2$.
+\begin{align*}
+	x = \begin{pmatrix}1\\-2\\5\end{pmatrix} = (-6)\begin{pmatrix}1\\1\\1\end{pmatrix} + 3 \begin{pmatrix}1\\2\\3\end{pmatrix} + 2 \begin{pmatrix}2\\-1\\1\end{pmatrix}
+\end{align*}
+
+\vspace{0.5cm}
+
+2 Vektoren sind genau dann linear unabhängig wenn einer der Vektoren ein Vielfaches des anderen Vektors ist.

@@ -1,0 +1,47 @@
+\termin{05.04.2016}
+\section{Zahlen}
+\subsection{Zahlenmengen}
+\begin{itemize}
+\item{Die Menge $\mathbb{N} = \{0,1,2,3,...\}$ heißt \underline{Menge der natürlichen Zahlen}. Für uns beinhalten die natürlichen Zahlen die $0$.}
+\item{Die Menge $\mathbb{Z} = \{...,-3,-2,-1,0,1,2,3,...\}$ heißt \underline{Menge der ganzen Zahlen}.}
+\item{Die Menge $\mathbb{Q} = \left\{\frac{p}{q}\,|\,p,q \in \mathbb{Z}, q \neq 0\right\}$ heißt \underline{Menge der rationalen Zahlen}.}
+\end{itemize}
+
+\subsection{Satz von Euklid}
+Es gibt keine rationale Zahl $q \in \mathbb{Q}$ mit $q^2 = 2$.
+
+\subsection{Reelle Zahlen}
+Die Menge $\mathbb{R}$ der reellen Zahlen ist die Vereinigung der Menge der rationalen Zahlen mit allen Zahlen, die sich durch rationalen Zahlen beliebig approximieren lassen.
+
+\subsection{Wurzel}
+Ist $b^n = a$ für $a, b \in \mathbb{R} > 0, n \in \mathbb{N}$, so heißt b die \underline{$n$-te Wurzel} von $a$: $b = \sqrt[n]{a}=a^\frac{1}{n}$. $b$ ist für alle $a > 0$ eindeutig. Der Vorgang des Wurzelziehens heißt auch \underline{radizieren}.
+
+\subsection{Kurzschreibweisen}
+Wir führen Kurzschreibweisen ein:
+\begin{align*}
+[a,b] &:= \{x\in\mathbb{R}\,|\,a \leq x \leq b\}\text{ heißt abgeschlossenes Intervall,} \\
+[a,b) &:= \{x\in\mathbb{R}\,|\,a \leq x < b\}\text{ und }(a,b] := \{x\in\mathbb{R}\,|\,a < x \leq b\}\text{ heißen halboffene Intervalle und} \\
+(a,b) &:= \{x\in\mathbb{R}\,|\,a < x < b\}\text{ heißt offenes Intervall.} \\
+&\text{Sonderfälle:} \\
+[a, \infty) &:= \{x\in\mathbb{R}\,|\,a \leq x\} \\
+(-\infty, b] &:= \{x\in\mathbb{R}\,|\,x \leq b\} \\
+(a, \infty) &:= \{x\in\mathbb{R}\,|\,a < x\} \\
+(-\infty, b) &:= \{x\in\mathbb{R}\,|\,x < b\}
+\end{align*}
+
+\subsection{Beschränktheit nach oben}
+Eine Menge $M \subseteq \mathbb{R}$ heißt nach oben beschränkt, falls es ein $k \in \mathbb{R}$ gibt, so dass $x \le k$ für alle $x \in M$. $k$ heißt obere Schranke von $M$. Ist $M$ nach oben beschränkt, gibt es mehrere obere Schranken von $M$: $M = [3,5)$. Offenbar ist $k = 17$ eine obere Schranke von $M$. Die kleinste obere Schranke von $M$ heißt \underline{Supremum} von $M$, kurz, $sup(M)$.
+
+\subsection{Satz über die Vollständigkeit von $\mathbb{R}$}
+Jede nach oben beschränkte Menge $M \subseteq \mathbb{R}$ besitzt ein Supremum in $\mathbb{R}$. Für $\mathbb{Q}$ gilt dies nicht. Das Supremum der Menge $[0,\sqrt{3}) \subseteq \mathbb{Q}$ wäre in $\mathbb{R}$ $\sqrt{3}$, diese Zahl liegt aber nicht in $\mathbb{Q}$. Dies unterscheidet die reellen Zahlen fundamental von den rationalen Zahlen.
+
+\subsection{Beschränktheit nach unten}
+Siehe Beschränktheit nach oben. Wichtig: Die größte untere Schranke heißt \underline{Infimum}, kurz $inf(M)$. Es gilt: $inf(M) = -sup(-M)$. ($-M = \{-m\,|\,m \in M\}$).
+
+\subsection{Satz zu Supremum und Infimum} Supremum und Infimum einer Menge M müssen nicht in der Menge liegen. Ist $sup(M) \in M$, so ist es auch das größte Element (Maximum) von $M$, kurz: $max(M)$. Analog dazu: Ist $inf(M) \in M$, so ist es auch das kleinste Element (Minimum) von $M$, kurz: $min(M)$.
+
+\subsection{Literatur}
+Alles bis hierher ist zu finden in:
+
+\href{http://www.mat.univie.ac.at/~gerald/ftp/book-mfi/mfi1.pdf}{Mathematik für Informatiker -- Band 1: Diskrete Mathematik und Lineare Algebra. Springer. Gerald Teschl, Susanne Teschl. Kapitel 2.1.}
+

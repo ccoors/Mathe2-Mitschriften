@@ -1,0 +1,113 @@
+\documentclass[a4paper,11pt,oneside,final,notitlepage,onecolumn]{article}
+\usepackage[top=2.5cm, bottom=3cm, left=2cm, right=2cm]{geometry}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{ulem}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage[table]{xcolor}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{graphicx}
+\usepackage{tabularx}
+\usepackage{eurosym}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\usepackage{ziffer}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes.misc}
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},cross/.default={1pt}}
+
+\usepackage{titlesec}
+\usepackage{lipsum}
+
+\usepackage{natbib}
+
+\usepackage{textcomp}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.12}
+
+\bibliographystyle{plainnat}
+
+\newcommand{\termin}[1]{{\newpage\Large \textbf{#1:}}}
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+
+\titleformat{\section}{\normalfont}{\textbf{\thesection}}{1em}{}
+\titleformat{\subsection}{\normalfont}{\textbf{\Roman{subsection})}}{1em}{}
+\titleformat{\subsubsection}{\normalfont}{\textbf{\alph{subsubsection})}}{1em}{}
+
+\usepackage{xspace}
+\newcommand{\titledot}[0]{\texorpdfstring{$\cdot$}{;}\xspace}
+
+\newcommand{\leadingzero}[1]{\ifnum #1<10 0\the#1\else\the#1\fi}
+\newcommand{\todaynew}{\leadingzero{\day}.\leadingzero{\month}.\the\year}
+
+\newcounter{MathCounter}
+\setcounter{MathCounter}{0}
+\newcommand{\mdf}[1]{\vspace{0.2cm}\textbf{#1 \stepcounter{MathCounter}\arabic{MathCounter}:}}
+
+% \setcounter{secnumdepth}{0}
+
+\setlength{\parindent}{0cm}
+
+% \rowcolors{2}{gray!15}{white}
+
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+\usepackage[pdftex,breaklinks]{hyperref}
+\hypersetup{
+  pdftitle    = {MG2 Mitschrift},
+  pdfsubject  = {Mitschrift},
+  pdfauthor   = {},
+  pdfkeywords = {},
+  pdfcreator  = {pdfLaTeX},
+  pdfproducer = {LaTeX},
+  colorlinks = false
+}
+
+\renewcommand{\maketitle}[3]{
+  \begin{center}
+    \title{#1}
+    \Large
+    \textbf{#1}
+    
+    \normalsize
+    \textit{#2}
+
+    \date{\today}
+    \textit{#3}
+  \end{center}
+  \normalsize
+  
+  \hypersetup{
+    pdftitle    = {#1},
+    pdfsubject  = {#1},
+    pdfauthor   = {},
+    pdfkeywords = {},
+    pdfcreator  = {pdfLaTeX},
+    pdfproducer = {LaTeX},
+  }
+}
+
+\begin{document}
+\maketitle{Mathematische Grundlagen 2 -- Mitschriften}{Mathematische Grundlagen 2: Lineare Algebra und Differential- und Integralrechnung}{Universität Bremen \titledot Sommersemester 2016}
+\tableofcontents
+
+\input{termine/2016_04_05.tex}
+
+\input{termine/2016_04_08.tex}
+
+\input{termine/2016_04_12.tex}
+
+\input{termine/2016_04_15.tex}
+
+\end{document}

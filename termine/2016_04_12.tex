@@ -1,0 +1,154 @@
+\termin{12.04.2016}
+\setcounter{MathCounter}{0}
+\section{Geometrie Teil 1}
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily]
+	\draw[step=1cm,gray,very thin] (0.1,0.1) grid (3.9,3.9);
+    \draw[thick,->] (-1,0) -- (4.5,0);
+	\draw[thick,->] (0,-1) -- (0,4.5);
+	\draw[thick,->] (0,0) -- (4.5,0) node[anchor=north west] {$x$};
+	\draw[thick,->] (0,0) -- (0,4.5) node[anchor=south east] {$y$};
+	\foreach \x in {1,2,3,4}
+		\draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {$\x$};
+	\foreach \y in {1,2,3,4}
+		\draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {$\y$};
+	
+	\draw (3,2) node [cross=5pt,red] {};
+	\node [align=left] at (3.4,2) {$P$};
+\end{tikzpicture}
+\end{center}
+
+Punkte in der Ebene können wie folgt beschrieben werden:
+\begin{enumerate}
+	\item{Als geordnetes Paar: $P = (3,2)$.}
+	\item{Wir wählen \glqq{}grundlegende Basiselemente\grqq{} z.B. $a$ = \glqq{}gehe\grqq{} 1 Schritt in $x$-Richtung und $b$ = \glqq{}gehe\grqq{} 1 Schritt in $y$-Richtung. Dann können wir $P$ schreiben als $3a + 2b$.}
+	\item{Als Vektor: $P = \begin{pmatrix}3 \\ 2\end{pmatrix}$, wie ein geordnetes Paar untereinander.}
+\end{enumerate}
+
+Offenbar hängt die Darstellung von $P$ von der Achsenbeschriftung ab, bzw. von den \glqq{}Basiselementen\grqq{}.
+
+Z.B. Setze $a$ = \grqq{}gehe\glqq{} 3 Schritte in $x$-Richtung, $b$ wie eben, dann ist $P = a + 2b$. Oder $a$ = \glqq{}gehe\grqq{} 1 Schritt entgegen der $x$-Richtung, dann $P = -3a + 2b$.
+
+\subsection{Die reelle Ebene}
+\mdf{Definition}
+Die \underline{reelle Ebene} ist das kartesische Produkt $\mathbb{R}^2 = \mathbb{R} \times \mathbb{R}$ und enthält alle Punkte $(x, y)$ mit $x, y \in \mathbb{R}$, also $\mathbb{R}^2 = \{(x,y)\,|\,x,y \in \mathbb{R}\}$. Statt $(x, y)$ schreiben wir in Zukunft $\begin{pmatrix}x \\ y\end{pmatrix} \in \mathbb{R}^2$ für Punkte in der reellen Ebene.
+
+$\begin{pmatrix}x \\ y\end{pmatrix}$ heißt (2-dimensionaler) \underline{Vektor} oder \underline{Spaltenvektor}.
+
+Analog können wir den dreidimensionalen Raum beschreiben als
+\begin{align*}
+	\mathbb{R}^3 = \mathbb{R} \times \mathbb{R} \times \mathbb{R} = \{(x,y,z)\,|\,x,y,z \in \mathbb{R}\}
+\end{align*}
+
+Offenbar ist $\mathbb{R}^3 = \mathbb{R}^2 \times \mathbb{R}$.
+
+Analog definiert man den $\mathbb{R}^n$, den $n$-dimensionalen reellen Raum:
+
+\begin{align*}
+	\mathbb{R}^n = \left\{\begin{pmatrix}x_1 \\ x_2 \\ x_3 \\ \vdots \\ x_n \end{pmatrix}\,\Bigg|\, x_1, x_2, \dots, x_n \in \mathbb{R} \right\}
+\end{align*}
+
+\subsection{Rechnen mit Vektoren}
+\mdf{Definition}
+\begin{align*}
+	\text{Für 2 Vektoren }x = \begin{pmatrix}x_1 \\ \vdots \\ x_n \end{pmatrix}\enspace y = \begin{pmatrix}y_1 \\ \vdots \\ y_n \end{pmatrix}\text{ ist } x + y\text{ definiert als }\begin{pmatrix}x_1 \\ \vdots \\ x_n \end{pmatrix} + \begin{pmatrix}y_1 \\ \vdots \\ y_n \end{pmatrix} = \begin{pmatrix}x_1 + y_1 \\ \vdots \\ x_n + y_n \end{pmatrix}
+\end{align*}
+
+\mdf{Beispiel}
+\begin{align*}
+	\begin{pmatrix} -1 \\ 0 \\ 2 \\ 1,5 \end{pmatrix} + \begin{pmatrix} 1 \\ \pi \\ 0 \\ -3 \end{pmatrix} = \begin{pmatrix} 0 \\ \pi \\ 2 \\ -1,5 \end{pmatrix}
+\end{align*}
+Beachte: Man kann nur gleichdimensionale Vektoren addieren.
+
+\subsection{Die Skalarmultiplikation}
+\mdf{Definition}
+Die \underline{Skalarmultiplikation} eines Vektors $x \in \mathbb{R}^n$ mit einer festen Zahl (Skalar genannt) $\lambda \in \mathbb{R}$ ist gegeben durch
+\begin{align*}
+	\lambda \cdot x = \begin{pmatrix} \lambda \cdot x_1 \\ \vdots \\ \lambda \cdot x_n \end{pmatrix}
+\end{align*}
+
+\mdf{Beispiel}
+\begin{align*}
+	\lambda = 2 \enspace x = \begin{pmatrix}2 \\ 1\end{pmatrix} \quad \lambda \cdot x = \begin{pmatrix}4 \\ 2\end{pmatrix}
+\end{align*}
+
+\subsection{Rechnen mit Vektoren}
+Mit Vektoren kann man fast wie mit Zahlen rechnen.
+
+Für $x,y,z \in \mathbb{R}^n$ gilt
+\begin{itemize}
+	\item{$(x+y)+z = x+(y+z)$ Assoziativgesetz}
+	\item{$x+y = y+x$ Kommutativgesetz}
+	\item{Der Nullvektor $0 = \begin{pmatrix}0 \\ \vdots \\ 0\end{pmatrix} \in \mathbb{R}^n$ ist neutrales Element der Addition}
+	\item{Zu jedem $x \in \mathbb{R}^n$ gibt es ein \glqq{}negatives\grqq{} $-x \in \mathbb{R}^n$ mit $x + (-x) = 0 \in \mathbb{R}^n$}
+	\item{Für $\lambda,\mu \in \mathbb{R}$ gilt $(\lambda + \mu)\cdot x = \lambda \cdot x + \mu \cdot x$ Distributivgesetz}
+	\item{Für $\lambda,\mu \in \mathbb{R}$ gilt $(\lambda \cdot \mu) \cdot x = \lambda \cdot (\mu \cdot x)$ Assoziativgesetz der Skalarmultiplikation}
+\end{itemize}
+
+\mdf{Bemerkung}
+Für Vektoren gibt es kein \glqq{}sinnvolles\grqq{} Produkt, so dass $x\cdot y$ in $\mathbb{R}^n$ liegt und die Eigenschaften gelten, die man von dem Produkt erwartet.
+
+\subsection{Lineare Unabhängigkeit}
+\mdf{Definition}
+Eine Menge von Vektoren $v_1,\dots,v_k \in \mathbb{R}^n$ heißt \underline{linear abhängig} falls die Gleichung
+
+\begin{align*}
+	\lambda _1 \cdot v_1 +\dots+\lambda _k \cdot v_k = 0 (\lambda _1,\dots,\lambda _k \in \mathbb{R})
+\end{align*}
+
+nur die Lösung $\lambda _1,\dots,\lambda _k = 0$ hat.
+
+Nicht linear unabhängige Vektoren heißen linear abhängig.
+
+Für Vektoren $v_1,\dots,v_k \in \mathbb{R}^n$ und Skalare $\lambda _1,\dots\lambda _k \in \mathbb{R}$ heißt $\lambda _1 \cdot v_1+\dots+\lambda _k \cdot v_k$ \underline{Linearkombination}.
+
+\subsection{Unterraum}
+\mdf{Definition}
+Eine Teilmenge $U \subseteq \mathbb{R}^n$ heißt \underline{Unterraum} von $\mathbb{R}^n$ falls gilt:
+\begin{description}
+	\item[(U1)]{$0 \in U$}
+	\item[(U2)]{$\forall u \in U,\, \forall \lambda \in \mathbb{R}\,:\,\lambda \cdot u \in U$}
+	\item[(U3)]{$\forall u,v \in U\,:\,u+v \in U$}
+\end{description}
+
+\mdf{Beispiel}
+Betrachte $\mathbb{R}^3$
+\begin{align*}
+	U = \left\{\begin{pmatrix}x \\ y \\ 0\end{pmatrix}\,\Bigg|\,x,y \in \mathbb{R}\right\}\text{ ist Unterraum des }\mathbb{R}^3
+\end{align*}
+
+Betrachte $\mathbb{R}^2$
+\begin{align*}
+	U = \left\{\begin{pmatrix}x \\ -x\end{pmatrix}\,\Bigg|\,x \in \mathbb{R}\right\}\,\subseteq\,\mathbb{R}^2\text{ ist Unterraum des }\mathbb{R}^2
+\end{align*}
+
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily]
+	\draw[step=1cm,gray,very thin] (-3.9,-3.9) grid (3.9,3.9);
+    \draw[thick,->] (-4.5,0) -- (4.5,0);
+	\draw[thick,->] (0,-4.5) -- (0,4.5);
+	\draw[thick,->] (-4.5,0) -- (4.5,0) node[anchor=north west] {$x$};
+	\draw[thick,->] (0,-4.5) -- (0,4.5) node[anchor=south east] {$y$};
+	\foreach \x in {-4,-3,-2,-1,1,2,3,4}
+		\draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {$\x$};
+	\foreach \y in {-4,-3,-2,-1,1,2,3,4}
+		\draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {$\y$};
+	
+	\draw[thick,red] (-3.5,3.5) -- (3.5,-3.5);
+\end{tikzpicture}
+\end{center}
+
+Betrachte $\mathbb{R}^n$, $U = \left\{\begin{pmatrix}0 \\ \vdots \\ 0\end{pmatrix}\right\}$ ist Unterraum des $\mathbb{R}^n$.
+
+\subsection{Lineare Hülle/Span}
+\mdf{Definition}
+Seien $v_1,\dots,v_k \in \mathbb{R}^n$. Die Menge
+\begin{align*}
+	\text{span}(v_1,\dots,v_k) = \{\lambda _1 \cdot v_1+\dots+\lambda _k \cdot v_k\,|\,\lambda _i \in \mathbb{R}\}
+\end{align*}
+
+heißt \underline{lineare Hülle} oder \underline{Span} von $v_1,\dots,v_k$.
+
+Die Vektoren $v_1,\dots,v_k$ heißen Erzeugendensystem eines Unterraums $U$ falls $U = \text{span}(v_1,\dots,v_k)$.
+
+Die Vektoren $v_1,\dots,v_k$ heißen Basis von $U$ falls $U = \text{span}(v_1,\dots,v_k)$ und $v_1,\dots,v_k$ sind linear unabhängig.

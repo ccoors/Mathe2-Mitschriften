@@ -1,0 +1,164 @@
+\termin{05.04.2016}
+\subsection{Betrag}
+Der Betrag einer reellen Zahl x ist gegeben durch
+\begin{align*}
+|x| &= \left\{\begin{array}{cl} x, & \mbox{falls }x \geq 0\\ -x, & \mbox{falls } x < 0 \mbox{/sonst} \end{array}\right.
+\end{align*}
+
+\subsection{Körper}
+Ein Körper $K$ heißt angeordnet, falls es auf $K$ eine totale Ordnung $\leq$ gibt, so dass gelten:
+\begin{itemize}
+\item{(A1) Für alle $x, y, z \in K : x \leq y \Rightarrow x \leq y + z$}
+\item{(A2) Für alle $x, y, z \in K : x \leq y, z > 0 \Rightarrow x\cdot z \leq y\cdot z$}
+\end{itemize}
+(Monotonie der Addition und Multiplikation)
+
+\subsection{Vollständig angeordneter Körper}
+Die reellen Zahlen bilden den bis auf Isomrphie eindeutig bestimmten \underline{vollständig angeordneten Körper}.
+
+Endliche Körper können nicht angeordnet werden, z.B. $Z_7$.
+
+\begin{align*}
+&\overline{0} \leq \overline{1} \leq \overline{2} \leq \overline{3} \leq \overline{4} \leq \overline{5} \leq \overline{6} \\
+&\overline{5} \leq \overline{6}\text{, aber }\overline{5} + \overline{1} = \overline{6} \neq \overline{6} + \overline{1} = \overline{0}
+\end{align*}
+
+\subsection{Zwischenfazit Zahlenmengen}
+$\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$
+
+
+\subsection{Reelle Zahlen auf der Zahlengeraden}
+Man kann sich die reellen Zahlen als Zahlengerade vorstellen. Diese Zahlengerade hat keine Lücken mehr.
+
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily]
+    \draw [<->] (0,0) -- (4,0);
+    \draw (2 cm, 4pt) -- (2 cm, -4pt) node[anchor=north] {$0$};
+    \draw (2.5 cm, 4pt) -- (2.5 cm, -4pt) node[anchor=north] {$\frac{1}{2}$};
+    \draw (3 cm, 4pt) -- (3 cm, -4pt) node[anchor=north] {$1$};
+\end{tikzpicture}
+\end{center}
+
+Aber: Es gibt Gleichungen, die wir nicht lösen können.
+
+$x^2 + 1 = 0$ hat keine Lösung in den reellen Zahlen, da es kein $x \in \mathbb{R}$ gibt, so dass $x^2 = -1$.
+
+\subsection{Komplexe Zahlen}
+Die Menge $C = {x + i\cdot y | x, y \in \mathbb{R}}$ heißt \underline{Menge der komplexen Zahlen}.
+
+Die Zahl $i = 0 + 1\cdot i$ ist definiert als $i^2 = -1$ und heißt \underline{imaginäre Einheit}. Für eine Zahl $z = x + i\cdot y$ heißt $x$ \underline{Realteil von z} ($Re(z) := x$), $y$ heißt \underline{Imaginärteil von z} ($Im(z) := y$).
+
+\subsubsection{Beispiel}
+$z = 3 - 2\cdot i$, dann
+$Re(z) = 3, Im(z) = -2$
+
+\subsection{Komplexe Zahlen bilden einen Körper}
+Die komplexen Zahlen bilden einen Körper.
+
+\begin{itemize}
+\item{\textbf{Addition}: Seien $z_1 = x_1 + i \cdot y_1$ und $z_2 = x_2 + i \cdot y_2$, dann ist $z_1 + z_2 = (x_1 + i \cdot y_1) + (x_2 + i \cdot y_2) = (x_1 + x_2) + i \cdot (y1 + y2)$.}
+\item{\textbf{Multiplikation}: $z_1 \cdot z_2 = (x_1 + i \cdot y_1) \cdot (x_2 + i \cdot y_2) = x_1 \cdot x_2 + x_1 \cdot i \cdot y_2 + i \cdot y_1 \cdot x_2 + i^2 \cdot y_1 \cdot y_2 = x_1 \cdot x_2 - y_1 \cdot y_2 + i \cdot y_1 \cdot x_2 + i \cdot y_2 \cdot x_1 = (x_1 \cdot x_2 - y_1 \cdot y_2) + i \cdot (x_1 \cdot y_2 + x_2 \cdot y_1)$}
+\end{itemize}
+
+\subsubsection{Beweis}
+\begin{enumerate}
+\item{Assiziativität der Addition: \cmark}
+\item{Neutralelement der Addition: $0 + 0 \cdot i = 0$ \cmark}
+\item{Inverses bezüglich Addition: $z = x + i \cdot y \Rightarrow -z = -x - i \cdot y$,
+
+Denn: $(x + i \cdot y) + (-x - i \cdot y) = (x - x) + i (y - y) = 0 + i \cdot 0 = 0$ \cmark}
+\item{Kommutativität der Addition: \cmark}
+\end{enumerate}
+
+\myparagraph{Assoziativgesetz der Multiplikation}
+Siehe P2 auf Blatt 2
+
+\myparagraph{Neutralelement der Multiplikation}
+$1 + 0 \cdot i = 1$
+
+\myparagraph{Inverse bezüglich Multiplikation}
+Ist $z = x + i \cdot y$, dann ist $z^{-1} = \frac{x}{x^2 + y^2} + i \cdot \frac{-y}{x^2 + y^2}$, denn:
+
+$(x + i \cdot y) \cdot (\frac{x}{x^2 + y^2} + i \cdot \frac{-y}{x^2 + y^2}) = (\frac{x^2 + y^2}{x^2 + y^2}) + i \cdot \frac{x \cdot y - y \cdot x}{x^2 + y^2} = 1 + i \cdot 0$.
+
+\myparagraph{Distributivgesetz}
+Siehe H4 auf Blatt 2
+
+\subsection{Komplex konjugierte Zahlen}
+Für eine komplexe Zahl $z = x + i \cdot y$ heißt $\overline{z} = x - i \cdot y$ die zu $z$ komplex konjugierte Zahl.
+
+Damit $Re(z) = \frac{z+\overline{z}}{2}, Im(z)=\frac{z-\overline{z}}{2\cdot i}$
+
+Es gilt: $\overline{z_1 + z_2} = \overline{z_1 + z_2}, \overline{z_1 \cdot z_2} = \overline{z_1 \cdot z_2}$
+
+$\overline{z^{-1}} = \overline{z}^{-1}$
+
+\subsection{Der Betrag von komplexen Zahlen}
+Der Betrag einer komplexen Zahl z = x +iy ist gegeben durch $|z| = sqrt(z * \overline{z}) = sqrt(x^2 + y^2)$.
+
+Wir können die komplexen Zahlen geometrisch durch die Gaußsche Zahlenebene veranschaulichen.
+
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily]
+% 	See https://de.sharelatex.com/blog/2013/08/27/tikz-series-pt1.html
+%     \draw[step=1cm,gray,very thin] (-1.9,-1.9) grid (5.9,5.9);
+    \draw[thick,->] (-1,0) -- (4.5,0);
+	\draw[thick,->] (0,-1) -- (0,4.5);
+	\draw[thick,->] (0,0) -- (4.5,0) node[anchor=north west] {Realteil};
+	\draw[thick,->] (0,0) -- (0,4.5) node[anchor=south east] {Imaginärteil};
+	\foreach \x in {1,2,3,4}
+		\draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {$\x$};
+	\foreach \y in {1,2,3,4}
+		\draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {$\y$};
+	
+	\draw[thick,->] (0,0) -- (2,3);
+	\draw (2,3) node [cross=5pt,red] {};
+	\node [align=left] at (3,3) {$(x+iy)$};
+\end{tikzpicture}
+\end{center}
+
+\subsection{Dreiecksungleichung}
+Für alle $x, w \in \mathbb{C}$ gilt:
+$|z + w| \leq |z| + |w|$ (\underline{Dreiecksungleichung})
+
+Anschaulich:
+
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily]
+    \draw[thick,->] (-1,0) -- (4.5,0);
+	\draw[thick,->] (0,-1) -- (0,4.5);
+	\draw[thick,->] (0,0) -- (4.5,0) node[anchor=north west] {Realteil};
+	\draw[thick,->] (0,0) -- (0,4.5) node[anchor=south east] {Imaginärteil};
+	\foreach \x in {1,2,3,4}
+		\draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {$\x$};
+	\foreach \y in {1,2,3,4}
+		\draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {$\y$};
+	
+	\draw[thick,->] (0,0) -- (2,1);
+	\draw[thick,->] (2,1) -- (3,3);
+	\draw[thick,->] (0,0) -- (3,3);
+	\draw (2,1) node [cross=5pt,red] {};
+	\draw (3,3) node [cross=5pt,red] {};
+	\node [align=left] at (2.4,1) {$z$};
+	\node [align=left] at (3.4,3) {$w$};
+\end{tikzpicture}
+\end{center}
+
+\subsection{Quadrieren von komplexen Zahlen}
+Zu jeder Zahl $z \in \mathbb{C}$ gibt es ein $w \in \mathbb{C}$ mit $z = w^2$.
+
+\subsubsection{Beweis}
+Sei $z = x + i \cdot y$:
+\begin{enumerate}
+\item{$z = 0$; dann $z = 0^2$, also $w = 0$}
+\item{$z \neq 0$ und $x > 0$. Dann setze $u := \sqrt{(1/2) * (x + sqrt(x^2 + y^2))}$. Dann ist $u \in \mathbb{R}$.
+
+Mit $v := \frac{y}{2 \cdot u}$ gilt: $(u + v \cdot i^2) = w^2 = x + i \cdot y = z$}
+\item{$z \neq 0$ und $x \leq 0$. Dann setze $u := \sqrt{\frac{1}{2} * (-x + \sqrt{x^2 + y^2})}$ Dann ist $v \in \mathbb{R}$.
+
+Mit $u := \frac{y}{2 \cdot v}$ gilt: $(u + v \cdot i^2) = w^2 = x + iy = z$}
+
+\end{enumerate}
+
+\subsection{$\mathbb{C}$ anordnen}
+$\mathbb{C}$ lässt sich nicht anordnen.
