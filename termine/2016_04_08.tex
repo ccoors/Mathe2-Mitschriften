@@ -1,4 +1,4 @@
-\termin{05.04.2016}
+\termin{08.04.2016}
 \subsection{Betrag}
 Der Betrag einer reellen Zahl x ist gegeben durch
 \begin{align*}
@@ -7,10 +7,10 @@ Der Betrag einer reellen Zahl x ist gegeben durch
 
 \subsection{Körper}
 Ein Körper $K$ heißt angeordnet, falls es auf $K$ eine totale Ordnung $\leq$ gibt, so dass gelten:
-\begin{itemize}
-\item{(A1) Für alle $x, y, z \in K : x \leq y \Rightarrow x \leq y + z$}
-\item{(A2) Für alle $x, y, z \in K : x \leq y, z > 0 \Rightarrow x\cdot z \leq y\cdot z$}
-\end{itemize}
+\begin{description}
+\item[(A1)]{Für alle $x, y, z \in K : x \leq y \Rightarrow x \leq y + z$}
+\item[(A2)]{Für alle $x, y, z \in K : x \leq y, z > 0 \Rightarrow x\cdot z \leq y\cdot z$}
+\end{description}
 (Monotonie der Addition und Multiplikation)
 
 \subsection{Vollständig angeordneter Körper}
@@ -24,8 +24,9 @@ Endliche Körper können nicht angeordnet werden, z.B. $Z_7$.
 \end{align*}
 
 \subsection{Zwischenfazit Zahlenmengen}
-$\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$
-
+\begin{align*}
+	\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}
+\end{align*}
 
 \subsection{Reelle Zahlen auf der Zahlengeraden}
 Man kann sich die reellen Zahlen als Zahlengerade vorstellen. Diese Zahlengerade hat keine Lücken mehr.
@@ -46,11 +47,10 @@ $x^2 + 1 = 0$ hat keine Lösung in den reellen Zahlen, da es kein $x \in \mathbb
 \subsection{Komplexe Zahlen}
 Die Menge $C = {x + i\cdot y | x, y \in \mathbb{R}}$ heißt \underline{Menge der komplexen Zahlen}.
 
-Die Zahl $i = 0 + 1\cdot i$ ist definiert als $i^2 = -1$ und heißt \underline{imaginäre Einheit}. Für eine Zahl $z = x + i\cdot y$ heißt $x$ \underline{Realteil von z} ($Re(z) := x$), $y$ heißt \underline{Imaginärteil von z} ($Im(z) := y$).
+Die Zahl $i = 0 + 1\cdot i$ ist definiert als $i^2 = -1$ und heißt \underline{imaginäre Einheit}. Für eine Zahl $z = x + i\cdot y$ heißt $x$ \underline{Realteil von z} ($\text{Re}(z) := x$), $y$ heißt \underline{Imaginärteil von z} ($\text{Im}(z) := y$).
 
 \subsubsection{Beispiel}
-$z = 3 - 2\cdot i$, dann
-$Re(z) = 3, Im(z) = -2$
+$z = 3 - 2\cdot i$, dann $\text{Re}(z) = 3, \text{Im}(z) = -2$
 
 \subsection{Komplexe Zahlen bilden einen Körper}
 Die komplexen Zahlen bilden einen Körper.
@@ -77,9 +77,14 @@ Siehe P2 auf Blatt 2
 $1 + 0 \cdot i = 1$
 
 \myparagraph{Inverse bezüglich Multiplikation}
-Ist $z = x + i \cdot y$, dann ist $z^{-1} = \frac{x}{x^2 + y^2} + i \cdot \frac{-y}{x^2 + y^2}$, denn:
-
-$(x + i \cdot y) \cdot (\frac{x}{x^2 + y^2} + i \cdot \frac{-y}{x^2 + y^2}) = (\frac{x^2 + y^2}{x^2 + y^2}) + i \cdot \frac{x \cdot y - y \cdot x}{x^2 + y^2} = 1 + i \cdot 0$.
+Ist $z = x + i \cdot y$, dann ist
+\begin{align*}
+	z^{-1} = \frac{x}{x^2 + y^2} + i \cdot \frac{-y}{x^2 + y^2}
+\end{align*}
+denn:
+\begin{align*}
+(x + i \cdot y) \cdot \left(\frac{x}{x^2 + y^2} + i \cdot \frac{-y}{x^2 + y^2}\right) = \left(\frac{x^2 + y^2}{x^2 + y^2}\right) + i \cdot \frac{x \cdot y - y \cdot x}{x^2 + y^2} = 1 + i \cdot 0
+\end{align*}
 
 \myparagraph{Distributivgesetz}
 Siehe H4 auf Blatt 2
@@ -87,14 +92,15 @@ Siehe H4 auf Blatt 2
 \subsection{Komplex konjugierte Zahlen}
 Für eine komplexe Zahl $z = x + i \cdot y$ heißt $\overline{z} = x - i \cdot y$ die zu $z$ komplex konjugierte Zahl.
 
-Damit $Re(z) = \frac{z+\overline{z}}{2}, Im(z)=\frac{z-\overline{z}}{2\cdot i}$
+Damit $\text{Re}(z) = \frac{z+\overline{z}}{2}, \text{Im}(z)=\frac{z-\overline{z}}{2\cdot i}$
 
 Es gilt: $\overline{z_1 + z_2} = \overline{z_1 + z_2}, \overline{z_1 \cdot z_2} = \overline{z_1 \cdot z_2}$
-
-$\overline{z^{-1}} = \overline{z}^{-1}$
+\begin{align*}
+\overline{z^{-1}} = \overline{z}^{-1}
+\end{align*}
 
 \subsection{Der Betrag von komplexen Zahlen}
-Der Betrag einer komplexen Zahl z = x +iy ist gegeben durch $|z| = sqrt(z * \overline{z}) = sqrt(x^2 + y^2)$.
+Der Betrag einer komplexen Zahl $z = x+iy$ ist gegeben durch $|z| = \sqrt{z \cdot \overline{z}} = \sqrt{x^2 + y^2}$.
 
 Wir können die komplexen Zahlen geometrisch durch die Gaußsche Zahlenebene veranschaulichen.
 
@@ -151,10 +157,10 @@ Zu jeder Zahl $z \in \mathbb{C}$ gibt es ein $w \in \mathbb{C}$ mit $z = w^2$.
 Sei $z = x + i \cdot y$:
 \begin{enumerate}
 \item{$z = 0$; dann $z = 0^2$, also $w = 0$}
-\item{$z \neq 0$ und $x > 0$. Dann setze $u := \sqrt{(1/2) * (x + sqrt(x^2 + y^2))}$. Dann ist $u \in \mathbb{R}$.
+\item{$z \neq 0$ und $x > 0$. Dann setze $u := \sqrt{(1/2) \cdot (x + \sqrt{x^2 + y^2})}$. Dann ist $u \in \mathbb{R}$.
 
 Mit $v := \frac{y}{2 \cdot u}$ gilt: $(u + v \cdot i^2) = w^2 = x + i \cdot y = z$}
-\item{$z \neq 0$ und $x \leq 0$. Dann setze $u := \sqrt{\frac{1}{2} * (-x + \sqrt{x^2 + y^2})}$ Dann ist $v \in \mathbb{R}$.
+\item{$z \neq 0$ und $x \leq 0$. Dann setze $u := \sqrt{\frac{1}{2} \cdot (-x + \sqrt{x^2 + y^2})}$ Dann ist $v \in \mathbb{R}$.
 
 Mit $u := \frac{y}{2 \cdot v}$ gilt: $(u + v \cdot i^2) = w^2 = x + iy = z$}
 
