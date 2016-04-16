@@ -21,6 +21,13 @@
 \newcommand{\cmark}{\ding{51}}
 \usepackage{ziffer}
 
+\DeclareFontFamily{U}{futm}{}
+\DeclareFontShape{U}{futm}{m}{n}{
+  <-> s * [.92] fourier-bb
+  }{}
+\DeclareSymbolFont{Ufutm}{U}{futm}{m}{n}
+\DeclareSymbolFontAlphabet{\mathbb}{Ufutm}
+
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
