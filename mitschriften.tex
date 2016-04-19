@@ -20,6 +20,7 @@
 \usepackage{pifont}
 \newcommand{\cmark}{\ding{51}}
 \usepackage{ziffer}
+\usepackage{enumerate}
 
 \DeclareFontFamily{U}{futm}{}
 \DeclareFontShape{U}{futm}{m}{n}{
@@ -32,6 +33,11 @@
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
 \usetikzlibrary{shapes.misc}
+\usetikzlibrary{angles}
+\usetikzlibrary{quotes}
+\usetikzlibrary{babel}
+\usetikzlibrary{3d}
+\usetikzlibrary{decorations.pathreplacing}
 \tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},cross/.default={1pt}}
 
 \usepackage{titlesec}
@@ -61,6 +67,8 @@
 \newcounter{MathCounter}
 \setcounter{MathCounter}{0}
 \newcommand{\mdf}[1]{\vspace{0.2cm}\textbf{#1 \stepcounter{MathCounter}\arabic{MathCounter}:}}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 % \setcounter{secnumdepth}{0}
 
@@ -116,5 +124,7 @@
 \input{termine/2016_04_12.tex}
 
 \input{termine/2016_04_15.tex}
+
+\input{termine/2016_04_19.tex}
 
 \end{document}

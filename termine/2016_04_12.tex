@@ -3,18 +3,16 @@
 \section{Geometrie Teil 1}
 \begin{center}
 \begin{tikzpicture}[>=triangle 45,font=\sffamily]
-	\draw[step=1cm,gray,very thin] (0.1,0.1) grid (3.9,3.9);
-    \draw[thick,->] (-1,0) -- (4.5,0);
-	\draw[thick,->] (0,-1) -- (0,4.5);
-	\draw[thick,->] (0,0) -- (4.5,0) node[anchor=north west] {$x$};
-	\draw[thick,->] (0,0) -- (0,4.5) node[anchor=south east] {$y$};
-	\foreach \x in {1,2,3,4}
-		\draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {$\x$};
-	\foreach \y in {1,2,3,4}
-		\draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {$\y$};
-	
-	\draw (3,2) node [cross=5pt,red] {};
-	\node [align=left] at (3.4,2) {$P$};
+\draw[step=1cm,gray,very thin] (0.1,0.1) grid (3.9,3.9);
+\draw[thick,->] (0,0) -- (4.5,0) node[anchor=north west] {$x$};
+\draw[thick,->] (0,0) -- (0,4.5) node[anchor=south east] {$y$};
+\foreach \x in {1,2,3,4}
+        \draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {$\x$};
+\foreach \y in {1,2,3,4}
+        \draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {$\y$};
+
+\draw (3,2) node [cross=5pt,red] {};
+\node [align=left] at (3.4,2) {$P$};
 \end{tikzpicture}
 \end{center}
 
@@ -124,17 +122,15 @@ Betrachte $\mathbb{R}^2$
 
 \begin{center}
 \begin{tikzpicture}[>=triangle 45,font=\sffamily]
-	\draw[step=1cm,gray,very thin] (-3.9,-3.9) grid (3.9,3.9);
-    \draw[thick,->] (-4.5,0) -- (4.5,0);
-	\draw[thick,->] (0,-4.5) -- (0,4.5);
-	\draw[thick,->] (-4.5,0) -- (4.5,0) node[anchor=north west] {$x$};
-	\draw[thick,->] (0,-4.5) -- (0,4.5) node[anchor=south east] {$y$};
-	\foreach \x in {-4,-3,-2,-1,1,2,3,4}
-		\draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {$\x$};
-	\foreach \y in {-4,-3,-2,-1,1,2,3,4}
-		\draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {$\y$};
-	
-	\draw[thick,red] (-3.5,3.5) -- (3.5,-3.5);
+\draw[step=1cm,gray,very thin] (-3.9,-3.9) grid (3.9,3.9);
+\draw[thick,->] (-4.5,0) -- (4.5,0) node[anchor=north west] {$x$};
+\draw[thick,->] (0,-4.5) -- (0,4.5) node[anchor=south east] {$y$};
+\foreach \x in {-4,-3,-2,-1,1,2,3,4}
+        \draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {$\x$};
+\foreach \y in {-4,-3,-2,-1,1,2,3,4}
+        \draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {$\y$};
+
+\draw[thick,red] (-3.5,3.5) -- (3.5,-3.5);
 \end{tikzpicture}
 \end{center}
 
