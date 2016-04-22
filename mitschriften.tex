@@ -21,6 +21,8 @@
 \newcommand{\cmark}{\ding{51}}
 \usepackage{ziffer}
 \usepackage{enumerate}
+\usepackage{stmaryrd}
+\usepackage{soul}
 
 \DeclareFontFamily{U}{futm}{}
 \DeclareFontShape{U}{futm}{m}{n}{
@@ -67,6 +69,9 @@
 \newcounter{MathCounter}
 \setcounter{MathCounter}{0}
 \newcommand{\mdf}[1]{\vspace{0.2cm}\textbf{#1 \stepcounter{MathCounter}\arabic{MathCounter}:}}
+
+\newcommand{\kapitel}[1]{\setcounter{MathCounter}{0}
+\section{#1}}
 
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
@@ -115,6 +120,9 @@
 
 \begin{document}
 \maketitle{Mathematische Grundlagen 2 -- Mitschriften}{Mathematische Grundlagen 2: Lineare Algebra und Differential- und Integralrechnung}{Universität Bremen \titledot Sommersemester 2016}
+\section*{Anmerkungen}
+\textbf{Diese Mitschriften können die persönliche Anwesenheit in der Vorlesung nicht ersetzen!} Bei diesem Dokument handelt es sich hauptsächlich um mehr oder weniger exakte Abschriften von der Tafel, teilweise mit persönlichen Anmerkungen und Notizen. Eventuelle Fehler in diesem Dokument sind nicht ganz auszuschließen. Ich bemühe mich jedoch, ein möglichst gutes Skript zu erstellen. Fehler können mir gerne gemeldet werden, zum Beispiel persönlich an mich oder im zugehörigen GitHub Repo als Issue (\url{https://github.com/ccoors/Mathe2-Mitschriften}).
+
 \tableofcontents
 
 \input{termine/2016_04_05.tex}
@@ -126,5 +134,7 @@
 \input{termine/2016_04_15.tex}
 
 \input{termine/2016_04_19.tex}
+
+\input{termine/2016_04_22.tex}
 
 \end{document}

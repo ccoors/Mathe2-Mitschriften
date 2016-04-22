@@ -1,0 +1,200 @@
+\termin{22.04.2016}
+\kapitel{Lineare Gleichungssysteme}
+\mdf{Definition}
+Ein \underline{lineares Gleichungssystem} aus $m$ Gleichungen und $n$ Unbekannten $x_1,\dots,x_n$ hat die Form
+\begin{align*}
+    a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n &= b_1 \\
+    a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n &= b_2 \\
+    \vdots & \\
+    a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n &= b_m
+\end{align*}
+
+Dabei sind die $a_{ij}$ und $b_i$ reelle oder komplexe Zahlen. Die $a_{ij}$ heißen \underline{Koeffizienten} des LGS. Sind alle $b_i$ gleich Null, so heißt das LGS \underline{homogen}, sonst \underline{inhomogen}.
+
+Ein LGS zu lösen bedeutet, Zahlen $x_1,\dots,x_n$ zu finden, so dass alle Gleichungen des LGS erfüllt werden.
+
+\mdf{Satz}
+Ein inhomogenes LGS hat entweder keine, genau eine oder unendlich viele Lösungen.
+
+\mdf{Beispiel}
+
+\textbf{a)}
+\begin{alignat*}{4}
+\text{I}\quad & x+y & = 2 & \quad|\,\text{Aus II: } x = y \\
+\text{II}\quad & x-y & = 0 & \quad|\,\text{Aus I: } 2x = 2
+\end{alignat*}
+Also genau eine Lösung: $x = y = 1$. \\
+
+\textbf{b)}
+\begin{alignat*}{4}
+\text{I}\quad & x+y & = 2 & \quad|\,\text{Aus II: } x = -y \\
+\text{II}\quad & x+y & = 0 & \quad|\,-y+y = 0 \Rightarrow 0 = 2 \enspace\lightning
+\end{alignat*} \\
+
+\textbf{c)}
+\begin{alignat*}{4}
+\text{I}\quad & x+y & = 2 & \quad|\,\text{Aus II: } y = 2 - x \\
+\text{II}\quad & 2x + 2y & = 4 & \quad|\,2x + 2(2-x) = 4
+\end{alignat*}
+Also $4 = 4$. Daher kann $x$ oder $y$ frei gewählt werden.
+\begin{align*}
+    \text{Also }\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}t\\2-t\end{pmatrix}\text{ mit }t\in \mathbb{R}
+\end{align*}
+
+\begin{samepage}
+\textbf{Anschauung:} \\
+\textbf{a)}
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily]
+\draw[step=1cm,gray,very thin] (-2.9,-2.9) grid (3.9,3.9);
+\draw[thick,->] (-3.5,0) -- (4.5,0) node[anchor=north west] {$x$-Achse};
+\draw[thick,->] (0,-3.5) -- (0,4.5) node[anchor=south east] {$y$-Achse};
+\foreach \x in {-2,-1,1,2,3,4}
+        \draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {$\x$};
+\foreach \y in {-2,-1,1,2,3,4}
+        \draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {$\y$};
+
+\draw[red,thick] (-2.5,-2.5) -- (3.5,3.5) node[anchor=south west] {$x=y$};
+\draw[blue,thick] (-2.5,4.5) -- (3.5,-1.5) node[anchor=north west] {$y=2-x$};
+\end{tikzpicture}
+\end{center}
+Die Lösung liegt genau in der Schnittmenge der beiden Geraden, hier also bei $(1, 1)$.
+\end{samepage} \\
+
+\begin{samepage}
+\textbf{b)}
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily]
+\draw[step=1cm,gray,very thin] (-2.9,-2.9) grid (3.9,3.9);
+\draw[thick,->] (-3.5,0) -- (4.5,0) node[anchor=north west] {$x$-Achse};
+\draw[thick,->] (0,-3.5) -- (0,4.5) node[anchor=south east] {$y$-Achse};
+\foreach \x in {-2,-1,1,2,3,4}
+        \draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {$\x$};
+\foreach \y in {-2,-1,1,2,3,4}
+        \draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {$\y$};
+
+\draw[red,thick] (-2.5,2.5) -- (3.5,-3.5) node[anchor=south west] {$x=-y$};
+\draw[blue,thick] (-2.5,4.5) -- (3.5,-1.5) node[anchor=north west] {$y=2-x$};
+\end{tikzpicture}
+\end{center}
+Die Geraden sind hier parallel und schneiden sich nicht, es gibt also keine Lösung des LGS, die Lösungsmenge ist leer.
+\end{samepage} \\
+
+\begin{samepage}
+\textbf{c)}
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily]
+\draw[step=1cm,gray,very thin] (-2.9,-2.9) grid (3.9,3.9);
+\draw[thick,->] (-3.5,0) -- (4.5,0) node[anchor=north west] {$x$-Achse};
+\draw[thick,->] (0,-3.5) -- (0,4.5) node[anchor=south east] {$y$-Achse};
+\foreach \x in {-2,-1,1,2,3,4}
+        \draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {$\x$};
+\foreach \y in {-2,-1,1,2,3,4}
+        \draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {$\y$};
+
+
+\draw[blue,thick] (-2.5,4.5) -- (3.5,-1.5) node[anchor=north west] {$y=2-x$};
+\draw[red,thick,dashed] (-2.5,4.5) -- (3.5,-1.5) node[anchor=south west] {$x=4-2y$};
+\end{tikzpicture}
+\end{center}
+Die Geraden liegen aufeinander, es gibt unendlich viele Lösungen.
+\end{samepage}
+
+\mdf{Bemerkung}
+Ein homogenes LGS hat immer mindestens eine Lösung: $x_1 = \dots = x_n = 0$ (triviale Lösung)
+
+\subsection{Erlaubte Umformungen eines LGS}
+\mdf{Satz}
+Folgende Umformungen verändern die Lösung eines LGS nicht:
+
+\begin{description}
+\item[i)]{Vertauschung zweier Zeilen}
+\item[ii)]{Multiplikation einer Zeile mit einer Zahl ungleich Null}
+\item[iii)]{Addition des Vielfachen einer Zeile zu einer anderen Zeile}
+\end{description}
+
+\subsection{Erweiterte Koeffizientenmatrix}
+\mdf{Bemerkung}
+Statt ein LGS als System von Gleichungen darzustellen nutzt man oft die \ul{erweiterte Koeffizientenmatrix}:
+\begin{align*}
+    \left(\begin{array}{cccc|c}
+        a_{11} & a_{12} & \dots & a_{1n} & b_1 \\
+        a_{21} & a_{22} & \dots & a_{2n} & b_2 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        a_{m1} & a_{m2} & \dots & a_{mn} & b_m
+    \end{array}\right)
+\end{align*}
+
+\mdf{Definition}
+Eine erweiterte Koeffizientenmatrix ist in \underline{Zeilenstufenform} (ZSF), falls
+
+\begin{description}
+\item[i)]{In jeder Zeile ist die erste Zahl ungleich Null eine Eins und steht weiter rechts als die erste nicht-Null-Zahl der Zeile darüber}
+\item[ii)]{Alle Nullzeilen befinden sich am unteren Ende der Matrix}
+\end{description}
+Sie ist in reduzierter Zeilenstufenform, falls zusätzlich gilt:
+\begin{description}
+\item[iii)]{Über jeder führenden Eins stehen nur Nullen}
+\end{description}
+
+\begin{align*}
+    \left(\begin{array}{ccccc|c}
+        0 & 1 & 1 & 3 & 5 & 1 \\
+        0 & 0 & 1 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 1 & 3
+    \end{array}\right) \text{ ist in ZSF}
+\end{align*}
+
+\begin{align*}
+    \left(\begin{array}{ccccc|c}
+        1 & 0 & 0 & 0 & 0 & 2 \\
+        0 & 0 & 0 & 1 & 0 & 3 \\
+        0 & 0 & 0 & 0 & 1 & 1 \\
+        0 & 0 & 0 & 0 & 0 & 0
+    \end{array}\right) \text{ ist in red. ZSF}
+\end{align*}
+
+Wenn eine erweiterte Koeffizientenmatrix in ZSF oder red. ZSF ist (und damit auch das zugehörige LGS), lässt sich die Lösung des LGS leicht ablesen.
+
+Der folgende Algorithmus überführt eine erweiterte Koeffizientenmatrix in ZSF:
+
+\mdf{Satz}
+Jede Matrix kann durch endlich viele Umformungen aus Satz 5 in ZSF gebracht werden.
+
+\subsection{Gauß--Jordan--Algorithmus}
+\mdf{Algorithmus}
+
+Anmerkung: \texttt{a[x][y]} bezeichnet hier $a_{xy}$.
+\begin{verbatim}
+i = 1
+j = 1
+Gauß(i, j):
+    Falls i = m oder j = n+1:
+        Ende
+    Falls a[i][j] = 0:
+        Suche r > i mit a[r][j] != 0
+        Falls r existiert:
+            Tausche Zeilen r und i
+        Sonst:
+            Gauß(i, j+1)
+    
+    Teile i-te Zeile durch a[i][j]
+    Für alle k > i: (Zeile k) - a[kj] * (Zeile i)
+    Gauß(i+1, j+1)
+\end{verbatim}
+
+\mdf{Bemerkung}
+Beim Lösen von Hand ist es oft einfacher, notwendige Umformungen durch \glqq{}scharfes Hingucken\grqq{} zu erkennen.
+
+Beim Implementieren des Gauß--Jordan--Algorithmus treten oft Effekte auf, die mit der Repräsentation reeller Zahlen im Rechner zusammenhängen.
+
+\mdf{Beispiel}
+\begin{align*}
+    \left(\begin{array}{ccccc|c}
+        1 & 2 & 1 & 1 & 1 & 2 \\
+        -1 & -2 & -2 & 2 & 1 & 1 \\
+        2 & 4 & 3 & -1 & 0 & -1 \\
+        1 & 2 & 2 & -2 & 1 & 1
+    \end{array}\right)
+\end{align*}
+Löse das zugehörige LGS.
