@@ -1,0 +1,149 @@
+\termin{26.04.2016}
+
+\kapitel{Matrizen}
+
+\mdf{Definition}
+Ein rechteckiges Schema von Skalaren $a_{ij} \in \mathbb{R}\text{ (oder }\mathbb{C}\text{)}$ in $m$ Zeilen und $n$ Spalten der Form
+\begin{align*}
+    A &=
+    \begin{pmatrix}
+        a_{11} & a_{12} & \dots & a_{1n} \\
+        a_{21} & a_{22} & \dots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} & a_{m2} & \dots & a_{mn}
+    \end{pmatrix}
+\end{align*}
+kurz $A = (a_{ij})$ heißt \begr{$m \times n$ Matrix}. $(m, n)$ heißt \begr{Dimension} der Matrix, $a_{ij}$ heißen \begr{Einträge}/\begr{Koeffizienten}. Ist $A$ eine $n \times n$ Matrix (quadratische Matrix), so heißen die Koeffizienten $a_{ii}$ \begr{Diagonalelemente} von $A$.
+
+\subsection{Rechnen mit Matrizen}
+Mit Matrizen kann man rechnen. Matrizen kann man addieren. Sind $A, B$ $m \times n$ Matrizen, man schreibt auch $A, B \in \mathbb{R}^{m \times n}$, mit $A = (a_{ij}), B = (b_{ij})$, dann
+\begin{align*}
+    A + B &= (a_{ij} + b_{ij}) =
+    \begin{pmatrix}
+        a_{11} + b_{11} & a_{12} + b_{12} & \dots & a_{1n} + b_{1n} \\
+        a_{21} + b_{21} & a_{22} + b_{22} & \dots & a_{2n} + b_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} + b_{m1} & a_{m2} + b_{m2} & \dots & a_{mn} + b_{mn}
+    \end{pmatrix}
+\end{align*}
+
+\mdf{Lemma}
+Bezüglich \glqq{}$+$\grqq{} bilden $m \times n$ Matrizen eine abelsche Gruppe, d.h. es gilt:
+\begin{align*}
+    A + B &= B + A \\
+    A + (B + C) &= (A + B) + C
+\end{align*}
+Die Nullmatrix $0 = (0)\enspace i = 1,\dots,m\enspace j = 1,\dots,n$ ist neutrales Element der Addition.
+
+Ist $A = (a_{ij})$, so gibt es ein eindeutig bestimmtes $-A = (-a_{ij})$ mit $A + (-A) = 0$. Beweis: Siehe Übungsblatt 5.
+
+\subsection{Matrizen und Vektoren}
+Matrizen sind ähnlich wie Vektoren. Für $k, h \in \mathbb{R}$ (oder $\mathbb{C}$):
+\begin{itemize}
+    \item{$kA = (k a_{ij})$}
+    \item{$k(hA) = (kh)A$}
+    \item{$k(A+B) = kA + kB$}
+    \item{$(k+h)A = kA + hA$}
+    \item{$1A = A$}
+\end{itemize}
+
+\mdf{Definition}
+Zu einer $m \times n$ Matrix $A = (a_{ij})$ heißt die $n \times m$ Matrix $A^T = (a_{ji})$ \begr{transponierte Matrix} zu $A$.
+
+\mdf{Beispiel}
+\begin{align*}
+    A &= \begin{pmatrix}
+        3 & 2 \\
+        5 & -1 \\
+        0 & 7
+    \end{pmatrix} & A^T = \begin{pmatrix}
+        3 & 5 & 0 \\
+        2 & -1 & 7
+    \end{pmatrix} \\
+    B &= \begin{pmatrix}
+        1 \\
+        2 \\
+        5
+    \end{pmatrix} & B^T = \begin{pmatrix}
+        1 & 2 & 5
+    \end{pmatrix}
+\end{align*}
+
+\mdf{Definition}
+Gilt für eine $n \times n$ Matrix $A$:
+\begin{align*}
+    A &= A^T
+\end{align*}
+so heißt $A$ \begr{symmetrische Matrix}.
+
+\mdf{Definition}
+Sei $A \in \mathbb{R}^{m \times n},\enspace B \in \mathbb{R}^{n \times r}$. Das Produkt $A \cdot B$ ist die $m \times r$ Matrix $C$ mit
+\begin{align*}
+    c_{ij} &= \sum_{k=1}^{n} a_{ik} b_{kj} = a_{i1} b_{1j} + a_{i2} b_{2j} + \dots + a_{in} b_{nj}
+\end{align*}
+Das Produkt von $A$ und $B$ ist nur definiert, falls $A$ so viele Spalten besitzt, wie $B$ Zeilen hat.
+
+\mdf{Beispiel}
+\begin{align*}
+    A &= \begin{pmatrix}
+        4 & 2 & 0 \\
+        -1 & 3 & 5
+    \end{pmatrix} \\
+    B &= \begin{pmatrix}
+        2 & 1 \\
+        3 & 7 \\
+        1 & 0
+    \end{pmatrix} \\
+    C &= \begin{pmatrix}
+        7 & 1 \\
+        2 & 5
+    \end{pmatrix} \\
+\end{align*}
+Definiert sind nur $A\cdot B$, $B\cdot A$, $B\cdot C$ und $C\cdot A$. Nicht definiert sind hingegen $A\cdot C$ und $C\cdot B$.
+
+\subsection{Falk-Schema}
+Das Falk(sche) Schema kann verwendet werden, um Matrizen einfach zu multiplizieren, hier am Beispiel $A\cdot B$. Man schreibt $A$ in die untere linke Zelle und $B$ in die obere rechte Zelle. Das Ergebnis $C$ steht in der unteren rechten Zelle.
+\begin{center}
+\begin{tabular}{r|l}
+    & $\begin{pmatrix}2 & 1\\3 & 7\\1 & 0\end{pmatrix}$ \\ \hline
+    $\begin{pmatrix}4 & 2 & 0\\-1 & 3 & 5\end{pmatrix}$ & $\begin{pmatrix} 14 & 18 \\ 12 & 20 \end{pmatrix}$
+\end{tabular}
+\end{center}
+(Wird noch überarbeitet)
+
+\mdf{Satz}
+Seien $A, B, C$ Matrizen mit passender Dimension (passend für die Beispiele), $k \in \mathbb{R}$ (oder $\mathbb{C}$). Dann gelten:
+\begin{itemize}
+    \item{$(kA)B = k(AB)$}
+    \item{$A(BC) = (AB)C$}
+    \item{$(A+B)C = (AB)C$}
+    \item{$A(B+C) = AB+AC$}
+    \item{$(AB)^T = A^TB^T$}
+\end{itemize}
+Im Allgemeinen gilt $AB \neq BA$.
+
+\mdf{Definition}
+Die $n \times n$ Matrix
+\begin{align*}
+    \mathbbm{1} &= \begin{pmatrix}
+        1 & 0 & \dots & 0 \\
+        0 & 1 & \dots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \dots & 1
+    \end{pmatrix}
+\end{align*}
+heißt \begr{$n \times n$ Einheitsmatrix}. Ist $A \in \mathbb{R}^{m \times n}$, so gilt $\mathbbm{1}_m A = A \mathbbm{1}_n = A$.
+
+\subsection{Matrizen und lineare Gleichungssysteme}
+Lineare Gleichungssysteme kann man als Matrixgleichung schreiben. Statt
+\begin{align*}
+    a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n &= b_1 \\
+    a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n &= b_2 \\
+    \vdots &= \vdots \\
+    a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n &= b_m
+\end{align*}
+schreiben wir
+\begin{align*}
+    A x = b\text{, mit } A \in \mathbb{R}^{m \times n},\quad x \in \mathbb{R}^{n(\times 1)},\quad b \in \mathbb{R}^{m (\times 1)}
+\end{align*}
+

@@ -5,5 +5,8 @@
 *.pyg
 *.toc
 *.out
+*.idx
+*.ilg
+*.ind
 *.pdf
 .directory

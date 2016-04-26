@@ -8,6 +8,7 @@
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
+\usepackage{bbm}
 \usepackage{ulem}
 \usepackage{caption}
 \usepackage{multicol}
@@ -23,6 +24,8 @@
 \usepackage{enumerate}
 \usepackage{stmaryrd}
 \usepackage{soul}
+\usepackage{imakeidx}
+\makeindex
 
 \DeclareFontFamily{U}{futm}{}
 \DeclareFontShape{U}{futm}{m}{n}{
@@ -75,6 +78,8 @@
 
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
+\newcommand{\begr}[1]{\index{#1}\textbf{\textit{#1}}}
+
 % \setcounter{secnumdepth}{0}
 
 \setlength{\parindent}{0cm}
@@ -123,6 +128,8 @@
 \section*{Anmerkungen}
 \textbf{Diese Mitschriften können die persönliche Anwesenheit in der Vorlesung nicht ersetzen!} Bei diesem Dokument handelt es sich hauptsächlich um mehr oder weniger exakte Abschriften von der Tafel, teilweise mit persönlichen Anmerkungen und Notizen. Eventuelle Fehler in diesem Dokument sind nicht ganz auszuschließen. Ich bemühe mich jedoch, ein möglichst gutes Skript zu erstellen. Fehler können mir gerne gemeldet werden, zum Beispiel persönlich an mich oder im zugehörigen GitHub Repo als Issue (\url{https://github.com/ccoors/Mathe2-Mitschriften}).
 
+Am Ende dieses Dokuments finden sich viele definierte wichtige Begriffe im \textbf{Index}. Die Seitenzahlen sind verlinkt.
+
 \tableofcontents
 
 \input{termine/2016_04_05.tex}
@@ -136,5 +143,9 @@
 \input{termine/2016_04_19.tex}
 
 \input{termine/2016_04_22.tex}
+
+\input{termine/2016_04_26.tex}
+
+\printindex
 
 \end{document}
