@@ -1,0 +1,133 @@
+\termin{29.04.2016}
+\subsection{Invertieren}
+\mdf{Definition}
+Ist $A \in \mathbb{R}^{n \times n}$ eine quadratische Matrix und gibt es zu $A$ eine Matrix $A^{-1}$ mit
+\begin{align*}
+	A^{-1} A = A A^{-1} = \mathbbm{1}_n
+\end{align*}
+so heißt $A$ \begr[Invertierbarkeit (Matrix)]{invertierbar} und die Matrix $A^{-1}$ heißt \begr[Inverse Matrix]{inverse Matrix} zu $A$.
+
+\vspace{1cm}
+
+Ist ein LGS mit $n$ Gleichungen und $n$ Unbekannten gegeben
+\begin{align*}
+	Ax = b\text{ mit }A \in \mathbb{R}^{n \times n},\quad x, b \in \mathbb{R}^n
+\end{align*}
+und A ist invertierbar, dann ist $x = A^{-1}b$ eindeutige Lösung des LGS.
+\begin{align*}
+	A^{-1}Ax = \mathbbm{1}_nx = x = A^{-1}b
+\end{align*}
+
+\mdf{Satz}
+Sind $A, B \in \mathbb{R}^{n \times n}$ invertierbar, so ist auch $A \cdot B$ invertierbar und es gilt
+\begin{align*}
+	(AB)^{-1} &= B^{-1}A^{-1} \\
+	\text{Denn: } (B^{-1}A^{-1})(AB) &= B^{-1}(A^{-1}A)B \\
+	&= B^{-1} (\mathbbm{1}_n) B \\
+	&= B^{-1}B \\
+	&= \mathbbm{1}_n
+\end{align*}
+
+\mdf{Beispiel}
+Ist $A = \begin{pmatrix}2&4\\-1&3\end{pmatrix}$ invertierbar? Gesucht ist also eine Matrix $B = \begin{pmatrix}b_{11}&b_{12}\\b_{21}&b_{22}\end{pmatrix}$ mit
+\begin{align*}
+	AB = \mathbbm{1}_2 &= \begin{pmatrix}1&0\\0&1\end{pmatrix} \\
+	\begin{pmatrix}2&4\\-1&3\end{pmatrix}\begin{pmatrix}b_{11}&b_{12}\\b_{21}&b_{22}\end{pmatrix} &= \begin{pmatrix}1&0\\0&1\end{pmatrix} \\
+	AB = \begin{pmatrix}2b_{11}+4b_{21}&2b_{12}+4b_{22}\\-b_{11}+3b_{21}&-b_{12}+3b_{22}\end{pmatrix} &= \begin{pmatrix}1&0\\0&1\end{pmatrix}
+\end{align*}
+Als LGS mit $4$ Gleichungen und $4$ Unbekannten
+\begin{alignat*}{9}
+2b_{11} & \enspace\enspace & & \enspace+\enspace & 4b_{12} & & & \enspace=\enspace & 1 \\
+-b_{11} & & & \enspace+\enspace & 3b_{12} & & & \enspace=\enspace & 0 \\
+ & \enspace\enspace & 2b_{12} & & & \enspace+\enspace & 4b_{22} & \enspace=\enspace & 0 \\
+ & \enspace\enspace & -b_{12} & & & \enspace+\enspace & 3b_{22} & \enspace=\enspace & 1
+\end{alignat*}
+\begin{align*}
+	\begin{pmatrix}
+		2 & 0 & 4 & 0 \\
+		-1 & 0 & 3 & 0 \\
+		0 & 2 & 0 & 4 \\
+		0 & -1 & 0 & 3
+	\end{pmatrix} \begin{pmatrix}
+		b_{11} \\
+		b_{12} \\
+		b_{21} \\
+		b_{22}
+	\end{pmatrix} &= \begin{pmatrix}
+		1 \\
+		0 \\
+		0 \\
+		1
+	\end{pmatrix}
+\end{align*}
+Als $2$ LGS mit je $2$ Unbekannten
+\begin{align*}
+	\begin{pmatrix}2&4\\-1&3\end{pmatrix}\begin{pmatrix}b_{11}\\b_{21}\end{pmatrix} = \begin{pmatrix}1\\0\end{pmatrix}\text{ und }
+	\begin{pmatrix}2&4\\-1&3\end{pmatrix}\begin{pmatrix}b_{12}\\b_{22}\end{pmatrix} = \begin{pmatrix}0\\1\end{pmatrix}
+\end{align*}
+Als erweiterte erweiterte (!) Koeffizientenmatrix
+\begin{align*}
+	\left(\begin{array}{cc|c|c}
+		2 & 4 & 1 & 0 \\
+		-1 & 3 & 0 & 1
+	\end{array}\right) = \left(\begin{array}{c|c}A & \mathbbm{1}_2\end{array}\right)
+\end{align*}
+Mit Gauß--Jordan auf reduzierte ZSF bringen
+\begin{align*}
+	\left(\begin{array}{c|c}
+		\begin{matrix}1 & 0\\0 & 1\end{matrix} & A^{-1}
+	\end{array}\right) &= \left(\begin{array}{c|c}
+		\mathbbm{1}_2 & A^{-1}
+	\end{array}\right) \\
+	\left(\begin{array}{cc|cc}
+		2 & 4 & 1 & 0 \\
+		-1 & 3 & 0 & 1
+	\end{array}\right)\enspace &|\text{I} : 2 \\
+	\left(\begin{array}{cc|cc}
+		1 & 2 & \frac{1}{2} & 0 \\[0.3em]
+		-1 & 3 & 0 & 1
+	\end{array}\right)\enspace &|\text{II} + \text{I} \\
+	\left(\begin{array}{cc|cc}
+		1 & 2 & \frac{1}{2} & 0 \\[0.3em]
+		0 & 5 & \frac{1}{2} & 1
+	\end{array}\right)\enspace &|\text{II} : 5 \\
+	\left(\begin{array}{cc|cc}
+		1 & 2 & \frac{1}{2} & 0 \\[0.3em]
+		0 & 1 & \frac{1}{10} & \frac{1}{5}
+	\end{array}\right)\enspace &|\text{I} - 2\cdot\text{II} \\
+	\left(\begin{array}{cc|cc}
+		1 & 0 & \frac{3}{10} & -\frac{2}{5} \\[0.3em]
+		0 & 1 & \frac{1}{10} & \frac{1}{5}
+	\end{array}\right)
+\end{align*}
+Also $A^{-1} = \frac{1}{10}\begin{pmatrix}3 & -4 \\1 & 2\end{pmatrix}$.
+\begin{align*}
+	A^{-1}A = \frac{1}{10}\begin{pmatrix}3 & -4 \\1 & 2\end{pmatrix}\begin{pmatrix}2&4\\-1&3\end{pmatrix} = \frac{1}{10}\begin{pmatrix}10&0\\0&10\end{pmatrix} = \begin{pmatrix}1&0\\0&1\end{pmatrix}
+\end{align*}
+
+Also: Matrix invertieren durch simultanes Lösung von $n$ LGS. $\left(A|\mathbbm{1}_n\right)$ mit Gauß--Jordan--Algorithmus umformen zu $\left(\mathbbm{1}_n|A^{-1}\right)$. Ist dies möglich, so ist $A$ invertierbar.
+
+\vspace{0.5cm}
+
+\textbf{Frage:} Können wir einer Matrix \glqq{}ansehen\grqq{}, ob sie invertierbar ist?
+
+Betrachte $2 \times 2$ LGS:
+\begin{align*}
+	a_{11}x_1 + a_{12}x_2 &= b_1\quad |\cdot a_{22} \\
+	a_{21}x_1 + a_{22}x_2 &= b_2\quad |\cdot (-a_{12}) \\[0.5cm]
+	a_{11}a_{22}x_1 + a_{12}a_{22}x_2 &= a_{22}b_1 \\
+	-a_{12}a_{21}x_1 - a_{12}a_{22}x_2 &= -a_{12}b_2 \quad |\text{I} + \text{II} \\[0.5cm]
+	a_{11}a_{22}x_1 + a_{12}a_{22}x_2 - a_{12}a_{22}x_2 - a_{12}a_{21}x_1 &= a_{22}b_1 - a_{12}b_2 \\
+	\Leftrightarrow (a_{11}a_{22}-a_{12}a_{21}) x_1 &= a_{22}b_1 - a_{12}b_{2}
+\end{align*}
+Diese Gleichung enthält nur noch $x_1$. Analog erhält man
+\begin{align*}
+	(a_{11}a_{22}-a_{12}a_{21}) x_2 &= a_{11}b_1 - a_{21}b_{2}
+\end{align*}
+
+Ist $(a_{11}a_{22}-a_{12}a_{21}) \neq 0$, ist das LGS eindeutig lösbar.
+
+\mdf{Definition}
+Für eine $2 \times 2$ Matrix $A = \begin{pmatrix}a_{11} & a_{12} \\ a_{21} & a_{22}\end{pmatrix}$ heißt $\text{det}(A) = \begin{vmatrix}a_{11} & a_{12} \\ a_{21} & a_{22}\end{vmatrix}$ \begr{Determinante} von $A$.
+
+Verallgemeinerung auf allgemeine Matrizen ist schwieriger. Die Herleitung geht über diese Vorlesung hinaus.
