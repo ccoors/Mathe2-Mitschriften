@@ -13,7 +13,7 @@ Ein rechteckiges Schema von Skalaren $a_{ij} \in \mathbb{R}\text{ (oder }\mathbb
         a_{m1} & a_{m2} & \dots & a_{mn}
     \end{pmatrix}
 \end{align*}
-kurz $A = (a_{ij})$ heißt \begr{$m \times n$ Matrix}. $(m, n)$ heißt \begr{Dimension} der Matrix, $a_{ij}$ heißen \begr{Einträge}/\begr{Koeffizienten}. Ist $A$ eine $n \times n$ Matrix (quadratische Matrix), so heißen die Koeffizienten $a_{ii}$ \begr{Diagonalelemente} von $A$.
+kurz $A = (a_{ij})$ heißt \begr[Matrix]{$m \times n$ Matrix}. $(m, n)$ heißt \begr{Dimension} der Matrix, $a_{ij}$ heißen \begr[Einträge (Matrix)]{Einträge}/\begr[Koeffizienten (Matrix)]{Koeffizienten}. Ist $A$ eine $n \times n$ Matrix (quadratische Matrix), so heißen die Koeffizienten $a_{ii}$ \begr{Diagonalelemente} von $A$.
 
 \subsection{Rechnen mit Matrizen}
 Mit Matrizen kann man rechnen. Matrizen kann man addieren. Sind $A, B$ $m \times n$ Matrizen, man schreibt auch $A, B \in \mathbb{R}^{m \times n}$, mit $A = (a_{ij}), B = (b_{ij})$, dann
@@ -48,7 +48,7 @@ Matrizen sind ähnlich wie Vektoren. Für $k, h \in \mathbb{R}$ (oder $\mathbb{C
 \end{itemize}
 
 \mdf{Definition}
-Zu einer $m \times n$ Matrix $A = (a_{ij})$ heißt die $n \times m$ Matrix $A^T = (a_{ji})$ \begr{transponierte Matrix} zu $A$.
+Zu einer $m \times n$ Matrix $A = (a_{ij})$ heißt die $n \times m$ Matrix $A^T = (a_{ji})$ \begr[Transponierte Matrix]{transponierte Matrix} zu $A$.
 
 \mdf{Beispiel}
 \begin{align*}
@@ -74,7 +74,7 @@ Gilt für eine $n \times n$ Matrix $A$:
 \begin{align*}
     A &= A^T
 \end{align*}
-so heißt $A$ \begr{symmetrische Matrix}.
+so heißt $A$ \begr[Symmetrische Matrix]{symmetrische Matrix}.
 
 \mdf{Definition}
 Sei $A \in \mathbb{R}^{m \times n},\enspace B \in \mathbb{R}^{n \times r}$. Das Produkt $A \cdot B$ ist die $m \times r$ Matrix $C$ mit
@@ -116,9 +116,9 @@ Seien $A, B, C$ Matrizen mit passender Dimension (passend für die Beispiele), $
 \begin{itemize}
     \item{$(kA)B = k(AB)$}
     \item{$A(BC) = (AB)C$}
-    \item{$(A+B)C = (AB)C$}
+    \item{$(A+B)C = AC+BC$}
     \item{$A(B+C) = AB+AC$}
-    \item{$(AB)^T = A^TB^T$}
+    \item{$(AB)^T = B^TA^T$}
 \end{itemize}
 Im Allgemeinen gilt $AB \neq BA$.
 
@@ -132,7 +132,7 @@ Die $n \times n$ Matrix
         0 & 0 & \dots & 1
     \end{pmatrix}
 \end{align*}
-heißt \begr{$n \times n$ Einheitsmatrix}. Ist $A \in \mathbb{R}^{m \times n}$, so gilt $\mathbbm{1}_m A = A \mathbbm{1}_n = A$.
+heißt \begr[Einheitsmatrix]{$n \times n$ Einheitsmatrix}. Ist $A \in \mathbb{R}^{m \times n}$, so gilt $\mathbbm{1}_m A = A \mathbbm{1}_n = A$.
 
 \subsection{Matrizen und lineare Gleichungssysteme}
 Lineare Gleichungssysteme kann man als Matrixgleichung schreiben. Statt

@@ -24,6 +24,7 @@
 \usepackage{enumerate}
 \usepackage{stmaryrd}
 \usepackage{soul}
+\usepackage{xifthen}
 \usepackage{imakeidx}
 \makeindex
 
@@ -78,7 +79,7 @@
 
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
-\newcommand{\begr}[1]{\index{#1}\textbf{\textit{#1}}}
+\newcommand{\begr}[2][]{\ifthenelse{\isempty{#1}}{\index{#2}}{\index{#1}}\textbf{#2}}
 
 % \setcounter{secnumdepth}{0}
 
