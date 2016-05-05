@@ -1,0 +1,176 @@
+\termin{03.05.2016}
+\subsection{Laplacescher Entwicklungssatz}
+\mdf{Definition}
+\begr{Laplacescher Entwicklungssatz}
+
+Für $A = (a_{ij}) \in \mathbb{R}^{n \times n}$ und $i, j \in \{1,\dots,n\}$ gilt
+\begin{align*}
+	\text{det}(A) &= \sum_{j=1}^{n}(-1)^{i+j} \cdot a_{ij} \cdot \text{det}(A_{ij})
+\end{align*}
+(Entwicklung nach der $i$-ten Zeile)
+
+bzw.
+\begin{align*}
+	\text{det}(A) &= \sum_{i=1}^{n}(-1)^{i+j} \cdot a_{ij} \cdot \text{det}(A_{ij})
+\end{align*}
+(Entwicklung nach der $j$-ten Spalte)
+
+Wobei $A_{ij}$ die Matrix ist, die man erhält, wenn man in $A$ die $i$-te Zeile und die $j$-te Zeile streicht.
+
+\mdf{Beispiel}
+\begin{align*}
+	A &= \begin{pmatrix}
+		4 & 2 & -3 & 4 \\
+		5 & 6 & 1 & 4 \\
+		0 & 0 & 2 & 0 \\
+		-2 & -2 &3 & 6
+	\end{pmatrix}
+\end{align*}
+Entwicklung nach der 3. Zeile (da diese viele Nullen enthält)
+\begin{align*}
+	\text{det}(A) =\,&(-1)^{3+1} \cdot 0 \cdot \text{det}(A_{31}) \\
+	+\,&(-1)^{3+2} \cdot 0 \cdot \text{det}(A_{32}) \\
+	+\,&(-1)^{3+3} \cdot 2 \cdot \text{det}(A_{33}) \\
+	+\,&(-1)^{3+4} \cdot 0 \cdot \text{det}(A_{34}) \\
+	=\,&(-1)^{3+3} \cdot 2 \cdot \text{det}\left(\begin{pmatrix}
+		4 & 2 & 4 \\
+		5 & 6 & 4 \\
+		-2 & -2 & 6
+	\end{pmatrix}\right) \\
+	=\,&2\cdot\left((-1)^{1+1} \cdot 4 \cdot \begin{vmatrix}
+		6 & 4 \\
+		-2 & 6
+	\end{vmatrix} + (-1)^{1+2} \cdot 2 \cdot \begin{vmatrix}
+		5 & 4 \\
+		-2 & 6
+	\end{vmatrix} + (-1)^{1+3} \cdot 4 \cdot \begin{vmatrix}
+		5 & 6 \\
+		-2 & -2
+	\end{vmatrix}\right) \\
+	=\,&2 \cdot (4 \cdot 44 - 2 \cdot 38 + 4 \cdot 2) = 2 \cdot 108 \\
+	=\,&216
+\end{align*}
+
+\mdf{Satz}
+Sind $A, B \in \mathbb{R}^{n \times n}$ und $a_1,\dots,a_n$ die Zeilen von A, sowie $k \in \mathbb{R}$. Dann gelten:
+\begin{itemize}
+	\item{$\text{det}(A\cdot B) = \text{det}(A) \cdot \text{det}(B)$}
+	\item{$\text{det}\begin{pmatrix}a_1\\a_2\\\vdots\\a_j\cdot k\\\vdots\\a_n\end{pmatrix} = k \cdot \text{det}(A)$}
+	\item{$\text{det}(A^T) = \text{det}(A)$}
+	\item{Ist $A$ invertierbar, so gilt $\text{det}(A^{-1}) = \frac{1}{\text{det}(A)}$}
+	\item{Vertauscht man in $A$ zwei Zeilen, so wechselt das Vorzeichen der Determinante.}
+	\item{\begin{align*}
+		&\text{det}\left(\begin{pmatrix}
+			a_{11} & \dots & a_{1n} \\
+			\vdots & \ddots & \vdots \\
+			a_{j1}+b_1 & \dots & a_{jn} + b_n \\
+			\vdots & \ddots & \vdots \\
+			a_{n1} & \dots & a_{nn}
+		\end{pmatrix}\right) =\\
+		&\text{det}\left(\begin{pmatrix}
+			a_{11} & \dots & a_{1n} \\
+			\vdots & \ddots & \vdots \\
+			a_{j1} & \dots & a_{jn} \\
+			\vdots & \ddots & \vdots \\
+			a_{n1} & \dots & a_{nn}
+		\end{pmatrix}\right) + \text{det}\left(\begin{pmatrix}
+			a_{11} & \dots & a_{1n} \\
+			\vdots & \ddots & \vdots \\
+			a_{(j-1)1} & \dots & a_{(j-1)n} \\
+			b_1 & \dots & b_n \\
+			a_{(j+1)1} & \dots & a_{(j+1)n} \\
+			\vdots & \ddots & \vdots \\
+			a_{n1} & \dots & a_{nn}
+		\end{pmatrix}\right)
+	\end{align*}}
+	\item{$A$ ist genau dann invertierbar, wenn $\text{det}(A) \neq 0$.}
+	\item{Sind die Zeilen von $A$ linear abhängig, so ist $\text{det}(A) = 0$.}
+\end{itemize}
+
+\newpage
+\kapitel{Lineare Abbildungen}
+\mdf{Definition}
+Seien $U \subseteq \mathbb{R}^n, V \subseteq \mathbb{R}^m$ Unterräume. Die Abbildung $\varphi : U \rightarrow V$ heißt \begr[Lineare Abbildung]{linear}, falls gelten:
+\begin{description}
+	\item[(A1)]{$\forall u, u' \in U$ gilt $\varphi(u+u') = \varphi(u) + \varphi(u')$}
+	\item[(A2)]{$\forall u \in U, \lambda \in \mathbb{R}$ gilt $\varphi(\lambda u) = \lambda \cdot \varphi(u)$}
+\end{description}
+
+\mdf{Beispiel}
+\begin{align*}
+	\varphi :\,\,&\mathbb{R}^2 \rightarrow \mathbb{R}^2 \\
+	\begin{pmatrix}x\\y\end{pmatrix} &\mapsto \begin{pmatrix}2x+y\\3x\end{pmatrix}
+\end{align*}
+ist eine lineare Abbildung. Beweis:
+\begin{description}
+	\item[(A1)]{Zu zeigen:
+	\begin{align*}
+		\varphi\left(\begin{pmatrix}x_1\\y_1\end{pmatrix} + \begin{pmatrix}x_2\\y_2\end{pmatrix}\right) &= \varphi\left(\begin{pmatrix}x_1\\y_1\end{pmatrix}\right) + \varphi\left(\begin{pmatrix}x_2\\y_2\end{pmatrix}\right) \\[0.5cm]
+		\varphi\left(\begin{pmatrix}x_1+x_2\\y_1+y_2\end{pmatrix}\right) &= \begin{pmatrix}2 (x_1+x_2) + (y_1+y_2)\\3(x_1+x_2)\end{pmatrix} = \begin{pmatrix}2 x_1 + y_1 + 2 x_2 + y_2\\3 x_1 + 3 x_2\end{pmatrix} \\
+		&= \begin{pmatrix}2 x_1 + y_1 \\ 3 x_1\end{pmatrix} + \begin{pmatrix}2 x_2 + y_2 \\ 3 x_2\end{pmatrix} = \varphi\left(\begin{pmatrix}x_1\\y_1\end{pmatrix}\right) + \varphi\left(\begin{pmatrix}x_2\\y_2\end{pmatrix}\right)
+	\end{align*}
+	}
+	\item[(A2)]{Zu zeigen:
+	\begin{align*}
+		\varphi\left(\lambda\begin{pmatrix}x\\y\end{pmatrix}\right) &= \lambda \varphi\left(\begin{pmatrix}x\\y\end{pmatrix}\right) \\[0.5cm]
+		\varphi\left(\lambda\begin{pmatrix}x\\y\end{pmatrix}\right) = \varphi\left(\begin{pmatrix}\lambda x\\\lambda y\end{pmatrix}\right) &= \begin{pmatrix}2\lambda x + \lambda y\\3\lambda x\end{pmatrix} = \begin{pmatrix}\lambda(2x+y)\\\lambda(3x)\end{pmatrix} = \lambda \varphi\left(\begin{pmatrix}x\\y\end{pmatrix}\right)
+	\end{align*}
+	}
+\end{description}
+
+\textbf{Gegenbeispiel}
+\begin{align*}
+	\psi :\,\,&\mathbb{R}^2 \rightarrow \mathbb{R}^2 \\
+	\begin{pmatrix}x\\y\end{pmatrix} &\mapsto \begin{pmatrix}x+3\\2x\end{pmatrix}
+\end{align*}
+ist \textbf{nicht} linear. Denn z.B. $\psi\left(2\begin{pmatrix}1\\0\end{pmatrix}\right) = \psi\left(\begin{pmatrix}2\\0\end{pmatrix}\right) = \begin{pmatrix}5\\4\end{pmatrix}$, aber $2\psi\left(\begin{pmatrix}1\\0\end{pmatrix}\right) = 2 \cdot \begin{pmatrix}4\\2\end{pmatrix} = \begin{pmatrix}8\\4\end{pmatrix} \neq \begin{pmatrix}5\\4\end{pmatrix}$.
+
+\mdf{Satz}
+Eine Abbildung $\varphi : \mathbb{R}^n \rightarrow \mathbb{R}^m$ ist genau dann linear, wenn sie in der Form $\varphi(x) = Ax$ mit $A \in \mathbb{R}^{m \times n}$ geschrieben werden kann.
+
+D.h.
+\begin{align*}
+	\varphi\left(\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\right) &= \begin{pmatrix}
+		a_{11}x_1 + \dots + a_{1n}x_n \\
+		\vdots & \ddots & \vdots \\
+		a_{m1}x_1 + \dots & a_{mn}x_n
+	\end{pmatrix}
+\end{align*}
+Die Matrix $A$ ist eindeutig bestimmt. Die Spalten von $A$ sind die Bilder der Standardbasisvektoren $e_1,\dots,e_n$. D.h.
+\begin{align*}
+	A &= (\varphi(e_1),\varphi(e_2),\dots,\varphi(e_n))
+\end{align*}
+
+\mdf{Beweis}
+\begin{align*}
+	\varphi(x + y) &= A(x + y) \\
+	&= Ax + Ay \\
+	&= \varphi(x) + \varphi(y) \\
+	\varphi(\lambda x) &= A(\lambda x) = \lambda(Ax) = \lambda\varphi(x)
+\end{align*}
+Außerdem:
+\begin{align*}
+	x &= x_1e_1 + x_2e_2 + \dots + x_ne_n
+\end{align*}
+Damit:
+\begin{align*}
+	\varphi(x) &= \varphi(x_1e_1 + \dots + x_ne_n) \\
+	&= \varphi(x_1e_1) + \varphi(x_2e_2) + \dots + \varphi(x_ne_n) \\
+	&= x_1\varphi(e_1) + x_2\varphi(e_2) + \dots + x_n\varphi(e_n) \\
+	&= (\varphi(e_1),\varphi(e_2),\dots,\varphi(e_n))x \\
+	&= Ax
+\end{align*}
+
+\mdf{Definition}
+Die Matrix $A$ aus Satz 3 heißt \begr[Darstellende Matrix]{darstellende Matrix} der linearen Abbildung $\varphi$.
+
+\mdf{Beispiel}
+Betrachte Abbildung $\varphi$ aus Beispiel 2. Wie sieht die darstellende Matrix aus?
+
+Standardbasisvektoren einsetzen:
+\begin{align*}
+	\varphi(e_1) = \varphi\left(\begin{pmatrix}1\\0\end{pmatrix}\right) &= \begin{pmatrix}2\\3\end{pmatrix} \\
+	\varphi(e_2) = \varphi\left(\begin{pmatrix}0\\1\end{pmatrix}\right) &= \begin{pmatrix}1\\0\end{pmatrix}
+\end{align*}
+
+Also ist $A = \begin{pmatrix}2 & 1 \\ 3 & 0\end{pmatrix}$ die darstellende Matrix von $\varphi$.
