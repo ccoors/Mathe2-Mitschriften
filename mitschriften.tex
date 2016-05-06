@@ -28,13 +28,6 @@
 \usepackage{imakeidx}
 \makeindex
 
-\DeclareFontFamily{U}{futm}{}
-\DeclareFontShape{U}{futm}{m}{n}{
-  <-> s * [.92] fourier-bb
-  }{}
-\DeclareSymbolFont{Ufutm}{U}{futm}{m}{n}
-\DeclareSymbolFontAlphabet{\mathbb}{Ufutm}
-
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
@@ -44,6 +37,7 @@
 \usetikzlibrary{babel}
 \usetikzlibrary{3d}
 \usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{matrix}
 \tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},cross/.default={1pt}}
 
 \usepackage{titlesec}
@@ -150,6 +144,8 @@ Am Ende dieses Dokuments finden sich viele wichtige definierte Begriffe im \text
 \input{termine/2016_04_29.tex}
 
 \input{termine/2016_05_03.tex}
+
+\input{termine/2016_05_06.tex}
 
 \printindex
 

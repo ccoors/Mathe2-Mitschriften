@@ -51,11 +51,56 @@ Entwicklung nach der 3. Zeile (da diese viele Nullen enthält)
 	=\,&216
 \end{align*}
 
+\subsubsection*{\textbf{Bei $3 \times 3$ Matrizen}}
+Bei $3 \times 3$ Matrizen kann man die \begr{Regel von Sarrus} anwenden. Herleitung:
+\begin{align*}
+    \begin{vmatrix}
+        a_{11} & a_{12} & a_{13} \\
+        a_{21} & a_{22} & a_{23} \\
+        a_{31} & a_{32} & a_{33}
+    \end{vmatrix} &= (-1)^{1+1} a_{11} \begin{vmatrix}
+        a_{22} & a_{23} \\
+        a_{32} & a_{33}
+    \end{vmatrix} + (-1)^{1+2} a_{12} \begin{vmatrix}
+        a_{21} & a_{23} \\
+        a_{31} & a_{33}
+    \end{vmatrix} + (-1)^{1+3} a_{13} \begin{vmatrix}
+        a_{21} & a_{22} \\
+        a_{31} & a_{32}
+    \end{vmatrix} \\
+    &= a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31}) \\
+    &= a_{11}a_{22}a_{33} - a_{11}a_{23}a_{32} - a_{12}a_{21}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32} - a_{13}a_{22}a_{31}
+\end{align*}\pagebreak
+
+Diese Formel kann man sich einfach grafisch veranschaulichen. Man schreibt rechts von der Matrix die ersten beiden Spalten noch einmal auf:
+\tikzset{node style ge/.style={circle}}
+\begin{center}
+\begin{tikzpicture}[baseline=(A.center)]
+\tikzset{Umrandung/.style = {opacity=.4,line width=2 mm,line cap=round,color=#1}}
+\tikzset{Plus/.style      = {above left=4mm,opacity=1,circle,fill=#1!50}}
+\tikzset{Minus/.style     = {below left=4mm,opacity=1,circle,fill=#1!50}}
+\matrix (A) [matrix of math nodes, nodes = {node style ge},,column sep=0 mm] 
+{ a_{11} & a_{12} & a_{13} & \textcolor{red}{a_{11}} & \textcolor{red}{a_{12}} \\
+  a_{21} & a_{22} & a_{23} & \textcolor{red}{a_{21}} & \textcolor{red}{a_{22}} \\
+  a_{31} & a_{32} & a_{33} & \textcolor{red}{a_{31}} & \textcolor{red}{a_{32}} \\
+};
+
+\draw [Umrandung=blue] (A-1-1.north west) node[Plus=blue] {$+$} to (A-3-3.south east);
+\draw [Umrandung=blue] (A-1-2.north west) node[Plus=blue] {$+$} to (A-3-4.south east);
+\draw [Umrandung=blue] (A-1-3.north west) node[Plus=blue] {$+$} to (A-3-5.south east);
+
+\draw [Umrandung=red] (A-3-1.south west) node[Minus=red] {$-$} to (A-1-3.north east);
+\draw [Umrandung=red] (A-3-2.south west) node[Minus=red] {$-$} to (A-1-4.north east);
+\draw [Umrandung=red] (A-3-3.south west) node[Minus=red] {$-$} to (A-1-5.north east);
+\end{tikzpicture}\footnote{Quelle: Alain Matthes, \url{http://www.texample.net/tikz/examples/mnemonic-rule-for-matrix-determinant/}, angepasst.}
+\end{center}
+Für jede blaue Diagonale bildet man das Produkt der Elemente und summiert dann die Diagonalen auf. Das tut man auch für die roten Diagonalen und subtrahiert diese dann von der Summe der blauen Diagonalen. Das Ergebnis ist die Determinante.
+
 \mdf{Satz}
 Sind $A, B \in \mathbb{R}^{n \times n}$ und $a_1,\dots,a_n$ die Zeilen von A, sowie $k \in \mathbb{R}$. Dann gelten:
 \begin{itemize}
 	\item{$\text{det}(A\cdot B) = \text{det}(A) \cdot \text{det}(B)$}
-	\item{$\text{det}\begin{pmatrix}a_1\\a_2\\\vdots\\a_j\cdot k\\\vdots\\a_n\end{pmatrix} = k \cdot \text{det}(A)$}
+	\item{$\text{det}\begin{pmatrix}a_1\\\vdots\\a_j\cdot k\\\vdots\\a_n\end{pmatrix} = k \cdot \text{det}(A)$}
 	\item{$\text{det}(A^T) = \text{det}(A)$}
 	\item{Ist $A$ invertierbar, so gilt $\text{det}(A^{-1}) = \frac{1}{\text{det}(A)}$}
 	\item{Vertauscht man in $A$ zwei Zeilen, so wechselt das Vorzeichen der Determinante.}
