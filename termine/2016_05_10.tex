@@ -1,0 +1,123 @@
+\termin{10.05.2016}
+
+\mdf{Satz}
+Seien $\varphi : \mathbb{R}^n \rightarrow \mathbb{R}^m$ und $\psi : \mathbb{R}^k \rightarrow \mathbb{R}^n$ lineare Abbildungen.
+\begin{align*}
+	\varphi(y) = Ay \quad \psi(x) = Bx
+\end{align*}
+Dann ist die \begr{Verkettung} $\varphi \circ \psi : \mathbb{R}^k \rightarrow \mathbb{R}^n$ wieder linear und $(\varphi \cdot \psi)(x) = (AB)x$.
+
+\mdf{Satz}
+Eine lineare Abbildung $\varphi : \mathbb{R}^n \rightarrow \mathbb{R}^n$ ist \begr[Umkehrbare lineare Abbildung]{umkehrbar} genau dann wenn die darstellende Matrix $A$ invertierbar ist.
+
+Die Umkehrabbildung ist ebenfalls linear und hat $A^{-1}$ als darstellende Matrix.
+
+\mdf{Definition}
+Seien $V \subseteq \mathbb{R}^n, W \subseteq \mathbb{R}^m$ Unterräume und $\varphi : V \rightarrow W$ eine lineare Abbildung. Dann heißen
+\begin{align*}
+	\text{ker}\varphi := \{x \in V\,|\,\varphi(x) = 0\}
+\end{align*}
+\begr[Kern einer linearen Abbildung]{Kern} von $\varphi$ und
+\begin{align*}
+	\text{Bild}\varphi := \varphi(V)
+\end{align*}
+\begr[Bild einer linearen Abbildung]{Bild} von $\varphi$.
+
+\mdf{Satz}
+Sei $\varphi : V \rightarrow W$ eine lineare Abbildung. Dann gilt
+\begin{align*}
+	\text{dim}\left(\text{ker}(\varphi)\right) + \text{dim}\left(\text{Bild}(\varphi)\right) = \text{dim}(V)
+\end{align*}
+
+\mdf{Definition}
+Der \begr[Rang einer Matrix]{Rang} $\text{rang}(A)$ einer Matrix $A$ ist die Anzahl der linear unabhängigen Zeilen von $A$.
+
+\mdf{Satz}
+Sei $A \in \mathbb{R}^{m \times n}$ dann gilt $\text{rang}(A) = \text{rang}(A^T)$.
+
+\mdf{Satz}
+Sei $\varphi : \mathbb{R}^n \rightarrow \mathbb{R}^m$ eine lineare Abbildung mit darstellender Matrix $A$. Dann gilt
+\begin{align*}
+	\text{dim}\left(\text{Bild}(\varphi)\right) = \text{rang}(A)
+\end{align*}
+
+\mdf{Definition}
+Sei $\varphi : \mathbb{R}^n \rightarrow \mathbb{R}^n$ eine lineare Abbildung. Ein Vektor $v \in \mathbb{R}^n \setminus \{0\}$ heißt \begr{Eigenvektor} zum \begr{Eigenwert} $\lambda \in \mathbb{R}$ falls gilt: $\varphi(v) = \lambda v$.
+
+Eine reelle Zahl $\lambda$ heißt Eigenwert falls es wenigstens einen Vektor $v \in \mathbb{R}^m \setminus \{0\}$ gibt, der Eigenvektor zu $\lambda$ ist.
+
+\mdf{Beispiel}
+Sei $\varphi : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ mit darstellender Matrix $A = \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$. Dann ist $v = \begin{pmatrix}1\\0\end{pmatrix}$ Eigenvektor von $\varphi$ zum Eigenwert $\lambda = 2$, denn
+\begin{align*}
+	Av = \begin{pmatrix}2 & 0 \\ 0 & 3\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix} = \begin{pmatrix}2\\0\end{pmatrix} = 2v
+\end{align*}
+Außerdem ist $\begin{pmatrix}x\\0\end{pmatrix}$ Eigenvektor (EV) zum Eigenwert (EW) $2 \quad\forall x \in \mathbb{R} \setminus \{0\}$.
+
+Analog: $\begin{pmatrix}0\\y\end{pmatrix}$ ist EV zum Eigenwert $3$ für alle $y \in \mathbb{R} \setminus \{0\}$.
+
+\mdf{Definition}
+Eine lineare Abbildung $\varphi : \mathbb{R}^n \rightarrow \mathbb{R}^n$ heißt \begr[Diagonalisierbare Abbildung]{diagonalisierbar} wenn es eine Basis des $\mathbb{R}^n$ aus Eigenvektoren von $\varphi$ gibt.
+
+\mdf{Beispiel}
+Die Abbildung aus Beispiel $14$ ist diagonalisierbar da $\begin{pmatrix}1\\0\end{pmatrix}$ und $\begin{pmatrix}0\\1\end{pmatrix}$ EV von $\varphi$ sind.
+
+\mdf{Satz}
+Sei $\varphi : \mathbb{R}^n \rightarrow \mathbb{R}^n$ eine lineare Abbildung mit darstellender Matrix $A$. Dann ist $\lambda \in \mathbb{R}$ genau dann EW von $\varphi$, wenn
+\begin{align*}
+	\text{det}(A - \lambda \cdot \mathbbm{1}_n) = 0
+\end{align*}
+
+\textbf{Beweis:}
+\begin{align*}
+	&\lambda\text{ ist EW von }\varphi \Leftrightarrow Av = 2v, v \neq 0 \\
+	&\Leftrightarrow Av - \lambda v = 0, v \neq 0 \\
+	&\Leftrightarrow (A - \lambda \mathbbm{1}_n)v = 0, v \neq 0 \\
+	&\Leftrightarrow \text{det}(A - \lambda \mathbbm{1}_n) = 0
+\end{align*}
+Das heißt $(A - \lambda \mathbbm{1}_n)$ ist nicht invertierbar.
+
+Das Polynom $\chi_A = \text{det}(A - \lambda \mathbbm{1}_n)$ heißt characteristisches Polynom von $A$ bzw. $\varphi$. (Chi)
+
+\mdf{Beispiel}
+Sei $\varphi$ die lineare Abbildung zur darstellenden Matrix $A = \begin{pmatrix}2 & 3 \\ 0 & 3\end{pmatrix}$. Dann ist
+\begin{align*}
+	\chi_A(A) &= \text{det}\left(\begin{pmatrix}2 & 3 \\ 0 & 3\end{pmatrix} - \lambda\cdot\begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}\right) \\
+	&= \text{det}\left(\begin{pmatrix}2-\lambda & 3 \\ 0 & 3-\lambda\end{pmatrix}\right) = (2-\lambda)\cdot(3-\lambda) = \lambda^2 - 5\lambda + 6
+\end{align*}
+Suche jetzt Nullstellen von $\chi_A(\lambda)$.
+\begin{align*}
+	\lambda_1 = 2\quad\lambda_2 = 3
+\end{align*}
+sind Nullstellen von $\chi_A$ und somit EW von $\varphi$.
+
+Um EV zu finden muss man nun das LGS
+\begin{align*}
+	(A - \lambda\mathbbm{1}_n)x = 0
+\end{align*}
+lösen für jeden EW $\lambda$ von $\varphi$.
+
+Also für $\lambda_1 = 2$:
+\begin{align*}
+	&\begin{pmatrix}0 & 3 \\ 0 & 1\end{pmatrix}\begin{pmatrix}x_1 \\ x_2\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix} \\
+	&\Rightarrow \left(\begin{array}{cc|c}0 & 3 & 0 \\ 0 & 1 & 0\end{array}\right) \\
+	&\Downarrow \text{I} - 3 \cdot \text{II} \\
+	&\Leftrightarrow \left(\begin{array}{cc|c}0 & 0 & 0 \\ 0 & 1 & 0\end{array}\right)
+\end{align*}
+$\Rightarrow x_2 = 0, x_1$ beliebig, aber nicht $0$, da $\begin{pmatrix}0\\0\end{pmatrix}$ kein EV. Also $\begin{pmatrix}x_1\\0\end{pmatrix}$ mit $x_1 \neq 0$ EV zum EW $\lambda _1 = 2$.
+
+Für $\lambda_2 = 3$:
+\begin{align*}
+	&\left(\begin{array}{cc|c}-1 & 3 & 0 \\ 0 & 0 & 0\end{array}\right) \\
+	&\Leftrightarrow -1x_1 + 3x_2 = 0 \\
+	&\Leftrightarrow 3x_2 = x_1
+\end{align*}
+Das heißt $x_2 \neq 0$ beliebig wählen. Also ist $\begin{pmatrix}3x_2\\x_2\end{pmatrix}$ mit $x_2 \neq 0$ ein EV zum EW $\lambda _2 = 3$.
+
+\mdf{Definition}
+Ist $\lambda$ Eigenwert zur linearen Abbildung $\varphi : \mathbb{R}^n \rightarrow \mathbb{R}^n, x \mapsto Ax$, so heißt die Lösungsmenge des LGS $(A - \lambda \mathbbm{1}_n) = 0$ \begr{Eigenraum} zum EW $\lambda$ $(\text{Eig}_A(\lambda))$.
+
+Dies ist ein Unterraum des $\mathbb{R}^n$ und jeder Vektor $v \in \text{Eig}_A(\lambda)$ außer $v = 0$ ist EV von $\varphi$ zum EW $\lambda$.
+
+
+
+
