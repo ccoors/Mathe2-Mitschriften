@@ -1,0 +1,214 @@
+\termin{13.05.2016}
+
+\kapitel{Geometrie Teil 2}
+\mdf{Beispiel}
+
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily]
+\draw[step=1cm,gray,very thin] (-3.9,-3.9) grid (3.9,3.9);
+\draw[thick,->] (-4.5,0) -- (4.5,0) node[anchor=north west] {$x_1$};
+\draw[thick,->] (0,-4.5) -- (0,4.5) node[anchor=south east] {$x_2$};
+\foreach \x in {-4,-3,-2,-1,1,2,3,4}
+        \draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {$\x$};
+\foreach \y in {-4,-3,-2,-1,1,2,3,4}
+        \draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {$\y$};
+
+\draw[black,dashed] (-3.5,-3.5) -- (3.5,3.5) node[anchor=south west] {$\mu \begin{pmatrix}1\\1\end{pmatrix}$};
+
+\draw[thick,->] (0,0) -- (1.2,2.5) node[anchor=south east] {};
+\draw[thick,->] (0,0) -- (2.5,1.2) node[anchor=south east] {};
+
+\draw (1.2,2.5) node [cross=4pt,red] {};
+\node [align=left] at (1.8,2.5) {$\varphi (x)$};
+
+\draw (2.5,1.2) node [cross=4pt,red] {};
+\node [align=left] at (2.8,1.2) {$x$};
+\end{tikzpicture}
+\end{center}
+Es sei $\varphi : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ die lineare Abbildung, die jeden Punkt $x \in \mathbb{R}^2$ an der Geraden
+\begin{align*}
+    \left\{\mu\begin{pmatrix}1\\1\end{pmatrix}\,|\,\mu \in \mathbb{R}\right\}
+\end{align*}
+spiegelt.
+
+\begin{enumerate}
+    \item{Wie sieht die darstellende Matrix von $\varphi$ aus?}
+    \item{Welche Eigenschaften hat sie?}
+\end{enumerate}
+
+\begin{align*}
+    \varphi (e_1) &= e_2\qquad \varphi (e_2) = e_1 \\
+    \Rightarrow A &= \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = \left(\varphi (e_1), \varphi (e_2)\right)
+\end{align*}
+Eigenwerte:
+\begin{align*}
+    \chi_A (\lambda) &= \text{det}\left(\begin{pmatrix} -\lambda & 1 \\ 1 & -\lambda \end{pmatrix}\right) = \lambda ^2 - 1 \\
+    \chi_A (\lambda) &= \text{det}(A - \lambda \mathbbm{1}_n) \\
+    &\Rightarrow \lambda _1 = 1 \qquad \lambda _2 = -1
+\end{align*}
+EV:
+\begin{align*}
+    &\lambda _1 = 1 \\
+    &\left(\begin{array}{cc|c}
+        -1 & 1 & 0 \\
+        1 & -1 & 0
+    \end{array}\right) \xRightarrow{\text{II+I}} \left(\begin{array}{cc|c}
+        -1 & 1 & 0 \\
+        0 & 0 & 0
+    \end{array}\right) \\
+    &\Rightarrow - x_1 + x_2 = 0 \Leftrightarrow x_1 = x_2 \\
+    &\text{Eig}_A(1) = \left\{\begin{pmatrix}x\\x\end{pmatrix}\,|\,x \in \mathbb{R}\right\} \\
+    &\text{z.B. Basis: } \left\{\begin{pmatrix}1\\1\end{pmatrix}\right\} \\[0.5cm]
+    &\lambda _2 = -1 \\
+    &\left(\begin{array}{cc|c}
+        1 & 1 & 0 \\
+        1 & 1 & 0
+    \end{array}\right) \xRightarrow{\text{II-I}} \left(\begin{array}{cc|c}
+        1 & 1 & 0 \\
+        0 & 0 & 0
+    \end{array}\right) \\
+    &\Rightarrow x_1 + x_2 = 0 \Leftrightarrow x_1 = -x_2 \\
+    &\text{Eig}_A(-1) = \left\{\begin{pmatrix}x\\-x\end{pmatrix}\,|\,x \in \mathbb{R}\right\} \\
+    &\text{z.B. Basis: } \left\{\begin{pmatrix}1\\-1\end{pmatrix}\right\} \\[1cm]
+    &\Rightarrow \varphi \text{ ist diagonalisierbar, da } \left\{\begin{pmatrix}1\\1\end{pmatrix},\begin{pmatrix}1\\-1\end{pmatrix}\right\} \text{ eine Basis von } \mathbb{R}^2 \text{ darstellt.}
+\end{align*}
+
+\mdf{Definition}
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily]
+\coordinate (v1) at ({2*cos(0.6 r)},{2*sin(0.6 r)});
+\coordinate (v2) at ({2*cos(0.6 r)},0);
+\coordinate (c) at (0,0);
+
+\pic["$\alpha$", draw=red, thick, -, angle eccentricity=0.6, angle radius=1cm] {angle=v2--c--v1};
+
+\draw [step=2cm,gray,very thin] (-2.5,-2.5) grid (2.5,2.5);
+\draw [->] (-3,0) -- (3,0) node[anchor=north west] {$x$};
+\draw [->] (0,-2.5) -- (0,3) node[anchor=south east] {$y$};
+
+\draw (0,0) circle (2);
+
+\draw [thick] (0,0) -- (v1);
+\draw [thick] (0,0) -- (v2);
+\draw [thick] (v2) -- (v1);
+
+\node [below] at (0,-2.5) {Einheitskreis};
+
+\node [below] at (0.9,0) {$x$};
+\node [right] at (2,0.5) {$y$};
+\end{tikzpicture}
+\end{center}
+Für ein rechtwinkliges Dreieck im Einheitskreis definiert man für den Winkel $\alpha \in [0^{\circ}, 360^{\circ}]$ bzw. $\alpha \in [0, 2\pi]$
+\begin{align*}
+    \sina &= y \\
+    \cosa &= x
+\end{align*}
+den \begr{Sinus} und den \begr{Kosinus} von $\alpha$.
+
+Beachte: $x, y$ sind vorzeichenbehaftet, d.h. z.B. für $90^{\circ} < \alpha < 270^{\circ}$ bzw. $\frac{\pi}{2} < \alpha < \frac{3\pi}{2}$ ist $x < 0$.
+
+\mdf{Satz}
+Ist eine Gerade durch den Ursprung im $\mathbb{R}^2$ gegeben, die einen Winkel von $\frac{\alpha}{2}$ mit der $x_1$-Achse einschließt, dann ist die lineare Abbildung, die jeden Punkt $x \in \mathbb{R}^2$ an dieser Geraden spiegelt, durch die Matrix
+\begin{align*}
+    \begin{pmatrix}
+        \cosa & \sina \\
+        \sina & -\cosa
+    \end{pmatrix}
+\end{align*}
+gegeben.
+
+% TODO: SKIZZE
+
+Wir bezeichnen Spiegelungen mit $\sigalph$.
+
+\mdf{Satz}
+Ist $\sigalph$ eine Spiegelung an der Ursprungsgeraden
+\begin{align*}
+    \left\{\mu\begin{pmatrix}
+        \cosah \\[2mm]
+        \sinah
+    \end{pmatrix}\,|\,\mu \in \mathbb{R}\right\}
+\end{align*}
+so hat $\sigalph$ die Eigenwerte $\lambda _1 = 1$ und $\lambda _2 = -1$.
+
+\vspace{0.3cm}
+
+\textbf{Beweis:}
+
+Die darstellende Matrix hat nach Satz 3 die Form
+\begin{align*}
+    A &= \begin{pmatrix}
+        \cosa & \sina \\
+        \sina & -\cosa
+    \end{pmatrix}
+\end{align*}
+Das characteristische Polynom
+\begin{align*}
+    \chi _A(\lambda) &= \text{det}(A - \lambda \mathbbm{1}_2) \\
+    &= \text{det}\left(\begin{pmatrix}
+        \cosa - \lambda & \sina \\
+        \sina & -\cosa - \lambda
+    \end{pmatrix}\right) \\
+    &= -(\cosa - \lambda)(\cosa + \lambda) - \text{sin}^2(\alpha)&\text{Nach 3. binomischer Formel} \\
+    &= \lambda ^2 - \text{cos}^2(\alpha) - \text{sin}^2(\alpha) \\
+    &= \lambda ^2 - (\text{cos}^2(\alpha) + \text{sin}^2(\alpha))&\text{Nach Satz von Pythagoras} \\
+    &= \lambda ^2 - 1 \\
+    &= (\lambda - 1)(\lambda + 1) \\
+    &\Rightarrow \lambda _1 = 1 \quad \lambda _2 = -1
+\end{align*}
+
+\mdf{Satz}
+Sei $\sigalph$ wie in Satz $4$. Dann ist die darstellende Matrix diagonalisierbar und die Eigenräume sind orthogonal zueinander.
+
+\vspace{0.3cm}
+
+\textbf{Beweis:}
+
+EW von $\sigalph$
+\begin{align*}
+    &x_1 = 1 \quad x_2 = -1 \\
+    \text{Eig}_A(1) &= \left\{\mu\begin{pmatrix}
+        \cosah \\[2mm]
+        \sinah
+    \end{pmatrix}\,|\,\mu \in \mathbb{R}\right\} \\
+    \Rightarrow \text{Basis }&\left\{\begin{pmatrix}
+        \cosah \\[2mm]
+        \sinah
+    \end{pmatrix}\right\} \\[0.5cm]
+    \text{Eig}_A(-1) &= \left\{\mu\begin{pmatrix}
+        -\sinah \\[2mm]
+        \cosah
+    \end{pmatrix}\,|\,\mu \in \mathbb{R}\right\} \\
+    \Rightarrow \text{Basis }&\left\{\begin{pmatrix}
+        -\sinah \\[2mm]
+        \cosah
+    \end{pmatrix}\right\}
+\end{align*}
+Ist
+\begin{align*}
+    \{b_1, b_2\} &= \left\{\begin{pmatrix}
+        \cosah \\[2mm]
+        \sinah
+    \end{pmatrix}, \begin{pmatrix}
+        -\sinah \\[2mm]
+        \cosah
+    \end{pmatrix}\right\}
+\end{align*}
+linear unabhängig?
+\begin{align*}
+    &\mu _1 b_1 + \mu _2 b_2 = 0 \\
+    &\left(\begin{array}{cc|c}
+        \cosah & -\sinah & 0 \\[2mm]
+        \sinah & \cosah & 0
+    \end{array}\right) \\
+\end{align*}
+
+
+
+
+
+
+
+
+
+
