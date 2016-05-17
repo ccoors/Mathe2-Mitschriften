@@ -1,0 +1,100 @@
+\termin{17.05.2016}
+
+\kapitel{Grenzwerte und Stetigkeit}
+\mdf{Definition}
+Eine Abbildung
+\begin{align*}
+	&a : \mathbb{N}_{\geq 1} \rightarrow \mathbb{R},\text{ auch geschrieben als } a_1, a_2, a_3, \dots \\
+	&n \mapsto a_n
+\end{align*}
+heißt \begr[Reelle Folge]{reelle Folge}. Die $a_n$ heißen \begr[Glied einer Folge]{Glieder} der Folge, $n$ heißt \begr[Index einer Folge]{Index} der Folge.
+
+Es gibt mehrere Möglichkeiten, Folgen zu beschreiben:
+\begin{itemize}
+	\item{Rekursiv: Bestimme $a_n$ in Abhängigkeit vorangegangener Folgeglieder.}
+	\item{Direkt: Bestimme $a_n$ ohne andere Folgeglieder zu kennen.}
+\end{itemize}
+
+\mdf{Definition}
+Eine Folge $a_n$ heißt
+\begin{itemize}
+	\item{\begr[Beschränktheit nach oben, Folge]{Nach oben beschränkt}, wenn es ein $K \in \mathbb{R}$ gibt, mit $a_n \leq K \enspace\forall a$.}
+	\item{\begr[Beschränktheit nach unten, Folge]{Nach unten beschränkt}, wenn es ein $K \in \mathbb{R}$ gibt, mit $K \leq a \enspace\forall a$.}
+	\item{\begr[Beschränktheit, Folge]{Beschränkt}, wenn sie nach oben und unten beschränkt ist.}
+	\item{\begr[Monoton wachsende Folge]{Monoton wachsend}, wenn für alle $n$ gilt: $a_{n+1} \geq a_n$}
+	\item{\begr[Streng monoton wachsende Folge]{Streng monoton wachsend}, wenn für alle $n$ gilt: $a_{n+1} > a_n$}
+	\item{\begr[Monoton fallende Folge]{Monoton fallend}, wenn für alle $n$ gilt: $a_{n+1} \leq a_n$}
+	\item{\begr[Streng monoton fallende Folge]{Streng monoton fallend}, wenn für alle $n$ gilt: $a_{n+1} < a_n$}
+\end{itemize}
+
+\mdf{Beispiel}
+\begin{itemize}
+	\item{$a_n = n\qquad a_1 = 1\enspace a_2 = 2\enspace a_3 = 3\enspace\dots$\\ist streng monoton wachsend und nach unten beschränkt.}
+	\item{$a_1 = 2,\enspace a_{n+1} = \frac{1}{2}\cdot\left(a_n + \frac{2}{a_n}\right)\qquad a_1 = 2,\enspace a_2 = 1,5,\enspace a_3 = \frac{17}{12} \approx 1,41666\enspace\dots$\\ist monoton fallend und beschränkt.}
+	\item{$a_1 = 2,\enspace a_n = n\cdot a_{n-1}\qquad a_2 = 2,\enspace a_3 = 6,\enspace a_4 = 24\enspace\dots$\\ist streng monoton wachsend und nach unten beschränkt. Direkt angegeben lautet die Formel $a_n = n!$}
+	\item{$a_n = (-1)^n\qquad a_1 = -1,\enspace a_2 = 1,\enspace a_3 = -1\enspace\dots$\\Eine Folge, die mit jedem Glied das Vorzeichen wechselt, heißt \begr[Alternierende Folge]{alternierende Folge}.}
+\end{itemize}
+
+\mdf{Definition}
+Eine Folge $a_n$ heißt \begr[Konvergente Folge]{konvergent} gegen $a$, falls
+\begin{align*}
+	\forall \varepsilon > 0\enspace\exists\, n_0 \in \mathbb{N}\quad\forall n\geq n_n : |a - a_n| < \varepsilon
+\end{align*}
+D.h. für jede noch so kleine Zahl $\varepsilon$ gibt es einen Folgenindex $n_0$, so dass alle Folgenglieder mit Index $n \geq n_0$ im Intervall $(a-\varepsilon, a+\varepsilon)$ liegen.
+
+Kurzschreibweise:
+\begin{align*}
+	\lim\limits_{n \to \infty}a_n = a
+\end{align*}
+$a_n$ \begr[Konvergieren]{konvergiert} gegen den Grenzwert $a$.
+
+\mdf{Satz}
+Der Grenzwert einer Folge ist eindeutig bestimmt und jede konvergente Folge ist beschränkt.
+
+Nicht-konvergente Folgen heißen \begr[Divergente Folge]{divergent}.
+
+\mdf{Beispiel}
+\begin{itemize}
+	\item{$a_n = 3$\\Konvergent mit Grenzwert 3. Für alle $\varepsilon > 0$ erfüllt $n_0 = 1$ die Bedingung, denn $|3 - a_n| = 0 < \varepsilon$.}
+	\item{$a_n = \frac{1}{n}$\\Konvergent mit Grenzwert $a = 0$. Für jedes $\varepsilon > 0$ wähle $n_0$ als kleinste natürliche Zahl mit $n_0 > \frac{1}{\varepsilon}$.}
+\end{itemize}
+\begin{align*}
+	&\text{z.B. }\varepsilon = 0,01 \Rightarrow  n_0 > \frac{1}{0,01} \Rightarrow n_0 = 101 \\
+	&\frac{1}{102}, \frac{1}{103}, \dots < \varepsilon \\[2mm]
+	&\lim\limits_{n \to \infty}\frac{1}{n} = 0
+\end{align*}
+\begin{itemize}
+	\item{$a_n = (-1)^n \cdot 2^n$\\Ist unbeschränkt und daher divergent.}
+\end{itemize}
+
+\mdf{Satz}
+Sind $a_n, b_n$ konvergente Folgen mit Grenzwert $a$ bzw. $b$ und $c \in \mathbb{R}$, so gelten
+\begin{itemize}
+	\item{$c \cdot a_n$ ist konvergent mit $\lim\limits_{n \to \infty}(c \cdot a_n) = c \cdot a$}
+	\item{$a_n + b_n$ ist konvergent mit $\lim\limits_{n \to \infty}(a_n + b_n) = a + b$}
+	\item{$a_n \cdot b_n$ ist konvergent mit $\lim\limits_{n \to \infty}(a_n \cdot b_n) = a \cdot b$}
+	\item{$\frac{a_n}{b_n}$ ist konvergent mit $\lim\limits_{n \to \infty}\left(\frac{a_n}{b_n}\right) = \frac{a}{b}$, falls $b \neq 0$.}
+\end{itemize}
+
+\mdf{Satz}
+Jede beschränkte und monoton wachsende oder fallende Folge ist konvergent.
+
+Das Produkt einer beschränkten Folge und einer Nullfolge ist eine Nullfolge. Eine Nullfolge ist eine Folge mit Grenzwert $0$.
+
+\mdf{Definition}
+Ist $a_n$ eine Folge und $\frac{1}{a_n}$ konvergent gegen $0$, dann heißt $a_n$
+\begin{itemize}
+	\item{bestimmt divergent gegen $\infty$, falls es ein $n_0$ gibt mit $a_n > 0$ für alle $n \geq n_0$.}
+	\item{bestimmt divergent gegen $-\infty$, falls es ein $n_0$ gibt mit $a_n >0$ für alle $n \geq n_0$.}
+\end{itemize}
+Schreibweise:
+\begin{align*}
+	\lim\limits_{n \to \infty}a_n &= \infty \\[2mm]
+	\lim\limits_{n \to \infty}a_n &= -\infty
+\end{align*}
+
+\mdf{Definition}
+Eine Folge $a_n$ heißt \begr{Couchy-Folge}, falls
+\begin{align*}
+	\forall\varepsilon > 0\enspace\exists\,n_0 \in \mathbb{N}\quad\forall n, m \geq n_0 : |a_m - a_n| < \varepsilon
+\end{align*}

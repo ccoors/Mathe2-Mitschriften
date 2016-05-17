@@ -201,14 +201,46 @@ linear unabhängig?
         \cosah & -\sinah & 0 \\[2mm]
         \sinah & \cosah & 0
     \end{array}\right) \\
+    &\quad\Downarrow\quad\text{I}\cdot\sinah \\
+    &\quad\Downarrow\quad\text{II}\cdot\cosah \\
+    &\left(\begin{array}{cc|c}
+		\cosah\cdot\sinah & -\text{sin}^2\left(\frac{\alpha}{2}\right) & 0 \\[2mm]
+		\sinah\cdot\cosah & \text{cos}^2\left(\frac{\alpha}{2}\right) & 0
+    \end{array}\right) \\
+    &\quad\Downarrow\quad\text{II-I} \\
+    &\left(\begin{array}{cc|c}
+		\cosah\cdot\sinah & -\text{sin}^2\left(\frac{\alpha}{2}\right) & 0 \\[2mm]
+		0 & 1 & 0
+    \end{array}\right) \\
+\end{align*}
+Erklärung zum letzten Eintrag:
+\begin{align*}
+	\text{sin}^2\left(\frac{\alpha}{2}\right) + \text{cos}^2\left(\frac{\alpha}{2}\right) &= 1 \\[0.5cm]
+	1\cdot\mu_2 = 0 \Rightarrow \mu_2 &= 0\quad\text{Einsetzen in I} \\
+	\sinah\cdot\cosah\cdot\mu_1 = 0 \Rightarrow \mu_1 &= 0
 \end{align*}
 
+Die Vektoren sind linear unabhängig. Also bilden
+\begin{align*}
+	\begin{pmatrix}
+		\cosah \\[2mm]
+		\sinah
+	\end{pmatrix}\text{ und }\begin{pmatrix}
+		-\sinah \\[2mm]
+		\cosah
+	\end{pmatrix}
+\end{align*}
+eine Basis von $\mathbb{R}^2$. $\Rightarrow \sigalph$ ist diagonalisierbar.
 
-
-
-
-
-
-
-
-
+Bestimme Skalarprodukt:
+\begin{align*}
+	&\left\langle \begin{pmatrix}
+		\cosah \\[2mm]
+		\sinah
+	\end{pmatrix}, \begin{pmatrix}
+		-\sinah \\[2mm]
+		\cosah
+	\end{pmatrix}\right\rangle \\
+	&= \cosah\cdot\left(-\sinah\right) + \sinah\cdot\cosah = 0
+\end{align*}
+$\Rightarrow$ Die Vektoren sind orthogonal zueinander.
