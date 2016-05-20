@@ -15,7 +15,6 @@ Ein rechteckiges Schema von Skalaren $a_{ij} \in \mathbb{R}\text{ (oder }\mathbb
 \end{align*}
 kurz $A = (a_{ij})$ heißt \begr[Matrix]{$m \times n$ Matrix}. $(m, n)$ heißt \begr{Dimension} der Matrix, $a_{ij}$ heißen \begr[Einträge (Matrix)]{Einträge}/\begr[Koeffizienten (Matrix)]{Koeffizienten}. Ist $A$ eine $n \times n$ Matrix (quadratische Matrix), so heißen die Koeffizienten $a_{ii}$ \begr{Diagonalelemente} von $A$.
 
-\subsection{Rechnen mit Matrizen}
 Mit Matrizen kann man rechnen. Matrizen kann man addieren. Sind $A, B$ $m \times n$ Matrizen, man schreibt auch $A, B \in \mathbb{R}^{m \times n}$, mit $A = (a_{ij}), B = (b_{ij})$, dann
 \begin{align*}
     A + B &= (a_{ij} + b_{ij}) =
@@ -37,7 +36,6 @@ Die Nullmatrix $0 = (0)\enspace i = 1,\dots,m\enspace j = 1,\dots,n$ ist neutral
 
 Ist $A = (a_{ij})$, so gibt es ein eindeutig bestimmtes $-A = (-a_{ij})$ mit $A + (-A) = 0$. Beweis: Siehe Übungsblatt 5.
 
-\subsection{Matrizen und Vektoren}
 Matrizen sind ähnlich wie Vektoren. Für $k, h \in \mathbb{R}$ (oder $\mathbb{C}$):
 \begin{itemize}
     \item{$kA = (k a_{ij})$}
@@ -101,8 +99,7 @@ Das Produkt von $A$ und $B$ ist nur definiert, falls $A$ so viele Spalten besitz
 \end{align*}
 Definiert sind nur $A\cdot B$, $B\cdot A$, $B\cdot C$ und $C\cdot A$. Nicht definiert sind hingegen $A\cdot C$ und $C\cdot B$.
 
-\subsection{Falk-Schema}
-Das Falk(sche) Schema kann verwendet werden, um Matrizen einfach zu multiplizieren, hier am Beispiel $A\cdot B$. Man schreibt $A$ in die untere linke Zelle und $B$ in die obere rechte Zelle. Das Ergebnis $C$ steht in der unteren rechten Zelle.
+Das \begr[Falk Schema]{Falk(sche) Schema} kann verwendet werden, um Matrizen einfach zu multiplizieren, hier am Beispiel $A\cdot B$. Man schreibt $A$ in die untere linke Zelle und $B$ in die obere rechte Zelle. Das Ergebnis $C$ steht in der unteren rechten Zelle.
 \begin{center}
 \begin{tabular}{r|l}
     & $\begin{pmatrix}2 & 1\\3 & 7\\1 & 0\end{pmatrix}$ \\ \hline
@@ -134,7 +131,6 @@ Die $n \times n$ Matrix
 \end{align*}
 heißt \begr[Einheitsmatrix]{$n \times n$ Einheitsmatrix}. Ist $A \in \mathbb{R}^{m \times n}$, so gilt $\mathbbm{1}_m A = A \mathbbm{1}_n = A$.
 
-\subsection{Matrizen und lineare Gleichungssysteme}
 Lineare Gleichungssysteme kann man als Matrixgleichung schreiben. Statt
 \begin{align*}
     a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n &= b_1 \\

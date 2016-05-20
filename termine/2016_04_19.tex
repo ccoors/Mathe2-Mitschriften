@@ -1,6 +1,5 @@
 \termin{19.04.2016}
 
-\subsection{Rechtwinkliges Dreieck}
 \mdf{Definition}
 In einem rechtwinkligen Dreieck
 \begin{center}
@@ -45,7 +44,6 @@ Offenbar macht diese Definition vom Kosinus nur Sinn für Winkel $0^{\circ} \leq
 \end{tikzpicture}
 \end{center}
 
-\subsection{Skalarprodukt}
 \mdf{Definition}
 Seien $x = \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix},\quad y = \begin{pmatrix}y_1\\\vdots\\y_n\end{pmatrix}$ Vektoren aus $\mathbb{R}^n$.
 
@@ -56,11 +54,9 @@ Das \begr{Skalarprodukt} $\langle x, y\rangle$ von $x$ und $y$ ist definiert dur
 
 Zwei Vektoren $x, y \in \mathbb{R}^n$ heißen \begr[Orthogonal (Vektoren)]{orthogonal} oder \begr[Senkrecht (Vektoren)]{senkrecht} zueinander, falls $\langle x, y\rangle = 0$.
 
-\subsection{Norm}
 \mdf{Definition}
 Die \begr{Norm} eines Vektors $x \in \mathbb{R}^n$ ist definiert durch $\norm{x} := \sqrt{\langle x, x\rangle}$.
 
-\subsection{Winkel zwischen Vektoren}
 \mdf{Definition}
 Der Winkel $\varphi$ (Phi) zwischen den Vektoren $x, y \in \mathbb{R}^n$ mit $x\neq 0, y\neq 0$ ist festgelegt durch
 \begin{align*}
@@ -122,15 +118,13 @@ Mit Skalarprodukt nach Definition 16:
 	\frac{\left\langle \begin{pmatrix}1\\0\end{pmatrix}, \begin{pmatrix}x\\y\end{pmatrix} \right\rangle}{\norm{\begin{pmatrix}1\\0\end{pmatrix}}\cdot \norm{\begin{pmatrix}x\\y\end{pmatrix}}} &= \frac{1x + 0y}{\sqrt{1^2 + 0^2}\cdot\sqrt{x^2 + y^2}} = \frac{x}{\sqrt{x^2 + y^2}} = \text{cos}(\varphi)
 \end{align*}
 
-\subsection{Orthogonale Systeme}
 \mdf{Definition}
 Eine Menge von Vektoren $v_1,\dots,v_k \in \mathbb{R}^n$ heißt \begr[Orthogonales System]{orthogonales System}, falls für alle $1\leq i, j \leq k, i\neq j$ gilt: $\langle v_i, v_j\rangle = 0$.
 
 Ein orthogonales System $v_1,\dots,v_n \in \mathbb{R}^n$, das zusätzlich Basis von $\mathbb{R}^n$ ist und für alle $1\leq i\leq n \norm{v_i} = 1$ erfüllt, heißt \begr{Orthonormalbasis} von $\mathbb{R}^n$.
 
 \begin{center}
-\begin{tikzpicture}[>=triangle 45,font=\sffamily]
-% Ja, das hat lange gedauert. Aber dafür ist es nun sehr flexibel :)
+\begin{tikzpicture}[>=triangle 45,font=\sffamily,scale=0.8]
 \coordinate (v1) at ({2*cos(1.1 r)},{2*sin(1.1 r)});
 \coordinate (v2) at ({2*cos((1.1-pi/2) r)},{2*sin((1.1-pi/2) r)});
 \coordinate (c) at (0,0);
@@ -147,9 +141,43 @@ Ein orthogonales System $v_1,\dots,v_n \in \mathbb{R}^n$, das zusätzlich Basis 
 \draw [->] (0,0) -- (v2);
 
 \node [below] at (0,-2.5) {Einheitskreis};
+\end{tikzpicture}\begin{tikzpicture}[>=triangle 45,font=\sffamily,scale=0.8]
+\coordinate (v1) at ({2*cos(0.55 r)},{2*sin(0.55 r)});
+\coordinate (v2) at ({2*cos((0.55-pi/2) r)},{2*sin((0.55-pi/2) r)});
+\coordinate (c) at (0,0);
+
+\pic["$\cdot$", draw=red, thick, -, angle eccentricity=0.6, angle radius=1.2cm] {angle=v2--c--v1};
+
+\draw [step=2cm,gray,very thin] (-2.5,-2.5) grid (2.5,2.5);
+\draw [->] (-3,0) -- (3,0) node[anchor=north west] {$x$};
+\draw [->] (0,-2.5) -- (0,3) node[anchor=south east] {$y$};
+
+\draw (0,0) circle (2);
+
+\draw [->] (0,0) -- (v1);
+\draw [->] (0,0) -- (v2);
+
+\node [below] at (0,-2.5) {Einheitskreis};
+\end{tikzpicture}\begin{tikzpicture}[>=triangle 45,font=\sffamily,scale=0.8]
+\coordinate (v1) at ({2*cos(4.4 r)},{2*sin(4.4 r)});
+\coordinate (v2) at ({2*cos((4.4-pi/2) r)},{2*sin((4.4-pi/2) r)});
+\coordinate (c) at (0,0);
+
+\pic["$\cdot$", draw=red, thick, -, angle eccentricity=0.6, angle radius=1.2cm] {angle=v2--c--v1};
+
+\draw [step=2cm,gray,very thin] (-2.5,-2.5) grid (2.5,2.5);
+\draw [->] (-3,0) -- (3,0) node[anchor=north west] {$x$};
+\draw [->] (0,-2.5) -- (0,3) node[anchor=south east] {$y$};
+
+\draw (0,0) circle (2);
+
+\draw [->] (0,0) -- (v1);
+\draw [->] (0,0) -- (v2);
+
+\node [below] at (0,-2.5) {Einheitskreis};
 \end{tikzpicture}
 \end{center}
-Das ist auch eine Basis.
+Das sind auch Basen.
 
 \mdf{Satz}
 \begin{enumerate}[i)]

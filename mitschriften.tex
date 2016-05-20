@@ -26,6 +26,7 @@
 \usepackage{soul}
 \usepackage{xifthen}
 \usepackage{imakeidx}
+\usepackage{fancybox}
 \makeindex
 
 \usepackage{tikz}
@@ -74,7 +75,7 @@
 
 \newcounter{MathCounter}
 \setcounter{MathCounter}{0}
-\newcommand{\mdf}[1]{\vspace{0.2cm}\textbf{#1 \stepcounter{MathCounter}\arabic{MathCounter}:}}
+\newcommand{\mdf}[1]{\vspace{0.2cm}\pagebreak[2]\phantomsection\textbf{#1 \stepcounter{MathCounter}\arabic{MathCounter}:}\addcontentsline{toc}{subsection}{#1 \arabic{MathCounter}}}
 
 \newcommand{\kapitel}[1]{\setcounter{MathCounter}{0}
 \section{#1}}
@@ -84,6 +85,7 @@
 \newcommand{\begr}[2][]{\ifthenelse{\isempty{#1}}{\index{#2}}{\index{#1}}\textbf{#2}}
 
 % \setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{2}
 
 \setlength{\parindent}{0cm}
 
@@ -95,7 +97,7 @@
 \hypersetup{
   pdftitle    = {MG2 Mitschrift},
   pdfsubject  = {Mitschrift},
-  pdfauthor   = {},
+  pdfauthor   = {Christian Friedrich Coors},
   pdfkeywords = {},
   pdfcreator  = {pdfLaTeX},
   pdfproducer = {LaTeX},
@@ -131,7 +133,11 @@
 \section*{Anmerkungen}
 \textbf{Diese Mitschriften können die persönliche Anwesenheit in der Vorlesung nicht ersetzen!} Bei diesem Dokument handelt es sich hauptsächlich um mehr oder weniger exakte Abschriften von der Tafel, teilweise mit persönlichen Anmerkungen und Notizen. Eventuelle Fehler in diesem Dokument sind nicht ganz auszuschließen. Ich bemühe mich jedoch, ein möglichst gutes Skript zu erstellen. Fehler können mir gerne gemeldet werden, zum Beispiel persönlich an mich oder im zugehörigen GitHub Repo als Issue (\url{https://github.com/ccoors/Mathe2-Mitschriften}).
 
-Am Ende dieses Dokuments finden sich viele wichtige definierte Begriffe im \textbf{Index}. Die Seitenzahlen sind verlinkt.
+\vspace{0.3cm}
+
+\begin{center}
+\shadowbox{\parbox{16cm}{Das Inhaltsverzeichnis enthält keine Begriffe/Überschriften (außer in Kapitel 1). Die definierten Begriffe befinden sich am Ende des Dokuments im \textbf{Index}. Dort sind die Seitenzahlen \textbf{verlinkt}.}}
+\end{center}
 
 \tableofcontents
 
