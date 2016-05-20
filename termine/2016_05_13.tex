@@ -116,8 +116,34 @@ Ist eine Gerade durch den Ursprung im $\mathbb{R}^2$ gegeben, die einen Winkel v
     \end{pmatrix}
 \end{align*}
 gegeben.
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily]
+\draw[step=1cm,gray,very thin] (-3.9,-3.9) grid (3.9,3.9);
+\draw[thick,->] (-4.5,0) -- (4.5,0) node[anchor=north west] {$x_1$};
+\draw[thick,->] (0,-4.5) -- (0,4.5) node[anchor=south east] {$x_2$};
+\foreach \x in {-4,-3,-2,-1,1,2,3,4}
+        \draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {$\x$};
+\foreach \y in {-4,-3,-2,-1,1,2,3,4}
+        \draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {$\y$};
 
-% TODO: SKIZZE
+\draw[black,dashed] (-3.5,-3.5) -- (3.5,3.5) node[anchor=south west] {};
+
+\coordinate (a) at (1,1);
+\coordinate (b) at (0,0);
+\coordinate (c) at (1,0);
+
+\pic["$\frac{\alpha{}}{2}$", draw=red, thick, -, angle eccentricity=0.6, angle radius=1.2cm] {angle=c--b--a};
+
+\draw[thick,->] (0,0) -- (-1.2,2.5) node[anchor=south east] {};
+\draw[thick,->] (0,0) -- (2.5,-1.2) node[anchor=south east] {};
+
+\draw (-1.2,2.5) node [cross=4pt,red] {};
+\node [align=left] at (-1.8,2.5) {$\varphi (x)$};
+
+\draw (2.5,-1.2) node [cross=4pt,red] {};
+\node [align=left] at (2.8,-1.2) {$x$};
+\end{tikzpicture}
+\end{center}
 
 Wir bezeichnen Spiegelungen mit $\sigalph$.
 
