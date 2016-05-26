@@ -1,0 +1,157 @@
+\termin{24.05.2016}
+
+\mdf{Satz} (Zwischenwertsatz)
+
+Ist eine Abbildung $f$ im (abgeschlossenen) Intervall $[a, b]$ stetig, so nimmt $f$ jeden Wert zwischen $f(a)$ und $f(b)$ an.
+
+Ist z.B. $f$ stetig und $f(a) < 0 < f(b)$, dann gibt es ein $x \in [a, b]$ mit $f(x) = 0$.
+
+\mdf{Satz} (Satz von Weierstraß)
+Jede auf dem Intervall $[a, b]$ stetige Funktion nimmt auf diesem Intervall ihr Minimum und Maximum an.
+
+\bigskip
+\textbf{Bemerkung:} Dies gilt nicht für offene Intervalle.
+\begin{align*}
+    f : (0, \infty) \rightarrow \mathbb{R}, f(x) = \frac{1}{x}
+\end{align*}
+
+\kapitel{Differentialrechnung}
+\textbf{Problem:} Abbildungen $f : \mathbb{R} \rightarrow \mathbb{R}$ können sehr kompliziert sein. Für Abbildungen $f : \mathbb{C} \rightarrow \mathbb{C}$ oder $f : \mathbb{R}^k \rightarrow \mathbb{R}^n$ gilt das noch viel mehr.
+
+\smallskip
+\textbf{Lösung:} Nähere (approximiere) das komplizierte $f$ durch einfachere Abbildungen an.
+
+\medskip
+Einfachste Abbildungen von $\mathbb{R}$ nach $\mathbb{R}$: $f(x) = kx + b$
+
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily]
+\draw[step=1cm,gray,very thin] (-2.9,-2.9) grid (3.9,3.9);
+\draw[thick,->] (-3.5,0) -- (4.5,0) node[anchor=north west] {$x$};
+\draw[thick,->] (0,-3.5) -- (0,4.5) node[anchor=south east] {$y$};
+\foreach \x in {-2,-1,1,2,3,4}
+        \draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {$\x$};
+\foreach \y in {-2,-1,1,2,3,4}
+        \draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {$\y$};
+
+\draw [blue,thick] plot[variable=\x,domain=-1.2:3.2,smooth,samples=200] (\x,{2-(\x-1)^2});
+\draw [red] (-2.5,-1.25) -- (3,4.25);
+
+\draw [blue,dashed] (0.5,1.75) -- (0.5,-0.1) node[anchor=north] {$x_0$};
+\draw [green,thick] (0.2,1.45) rectangle (0.8,2.05);
+\end{tikzpicture}\begin{tikzpicture}[>=triangle 45,font=\sffamily]
+\draw [blue,thick] (-2,-2) .. controls (-0.9,0.2) and (-0.2,1.5) .. (2,2);
+\draw [red] (-2,-1) -- (0.89156,2);
+
+\draw [green,thick] (-2,-2) rectangle (2,2);
+\end{tikzpicture}
+\end{center}
+
+In einer kleinen Umgebung von $x_0$ lässt sich $f(x)$ durch eine Gerade annähern. D.h. $f(x) \approx f(x_0) + k (x-x_0)$ für $|x-x_0|$ \glqq{}klein\grqq{}.
+
+\bigskip
+\textbf{Frage:} Wie bestimmt man $k$? (Steigung der Geraden)
+
+\smallskip
+\textbf{Naiv:} Wähle ein $x_1$ mit $|x_1 - x_0|$ klein und bestimme
+\begin{align*}
+    k := \frac{f(x_1) - f(x_0)}{x_1 - x_0}
+\end{align*}
+\glqq{}Sekantensteigung\grqq{}
+
+\medskip
+Optimale Steigung: Wähle k zu
+\begin{align*}
+    \lim\limits_{x_1 \to x_0} \frac{f(x_1) - f(x_0)}{x_1 - x_0}
+\end{align*}
+falls der Grenzwert existiert. \glqq{}Tangentensteigung\grqq{}
+
+\mdf{Definition} Sei $D \subseteq \mathbb{R}$ und $f : D \rightarrow \mathbb{R}$ eine Abbildung. $f$ heißt \begr[Differenzierbarkeit (Stelle)]{differenzierbar an der Stelle $x_0 \in D$}, falls der Grenzwert der Sekantensteigungen
+\begin{align*}
+    \frac{df}{dx} (x_0) = \lim\limits_{x_1 \to x_0, x \neq 0} \frac{f(x) - f(x_0)}{x-x_0}
+\end{align*}
+existiert.
+
+Dieser Grenzwert heißt \begr[Ableitung (Stelle)]{Ableitung von $f$ an der Stelle $x_0$} und wird mit $f'(x_0)$ bezeichnet. Ist $f$ an jedem Punkt $x_0$ differenzierbar, dann ist $f'$ selbst eine Abbildung. Ist $f'$ stetig, so heißt $f$ \begr[Stetige Differenzierbarkeit]{stetig differenzierbar}.
+
+\mdf{Beispiel}
+\begin{align*}
+    &f : \mathbb{R} \rightarrow \mathbb{R}, f(x) = x^2 \\
+    &\lim\limits_{x \to x_0} \frac{f(x) - f(x_0)}{x-x_0} = \lim\limits_{x \to x_0} \frac{x^2 - x_0^2}{x-x_0} = \lim\limits_{x \to x_0} x+x_0 = x+x_0 = 2x_0
+\end{align*}
+Also ist $f(x) = x^2$ differenzierbar auf $\mathbb{R}$ und $f'(x) = 2x$.
+
+\medskip
+\textbf{Bemerkung:} Oft sieht man folgende Definition:
+\begin{align*}
+    \frac{df}{dx} = \lim\limits_{h \to 0} \frac{f(x_0+h)-f(x_0)}{h}
+\end{align*}
+Dies ist äquivalent zu Definition 1.
+
+\mdf{Satz}
+Jede differenzierbare Abbildung ist stetig.
+
+\mdf{Beispiel}
+\begin{align*}
+    f : &\,\mathbb{R} \rightarrow \mathbb{R} \\
+    &\,x \mapsto |x|
+\end{align*}
+ist stetig, aber nicht differenzierbar in $x_0 = 0$.
+
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily]
+\draw[step=1cm,gray,very thin] (-3.9,-0.9) grid (3.9,3.9);
+\draw[thick,->] (-4.5,0) -- (4.5,0) node[anchor=north west] {$x$};
+\draw[thick,->] (0,-1.5) -- (0,4.5) node[anchor=south east] {$y$};
+\foreach \x in {-4,-3,-2,-1,1,2,3,4}
+        \draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {$\x$};
+\foreach \y in {-1,1,2,3,4}
+        \draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {$\y$};
+
+\draw [blue,thick] plot[variable=\x,domain=-3.2:3.2,smooth,samples=200] (\x,{abs(\x)});
+\end{tikzpicture}
+\end{center}
+
+\mdf{Satz} (Mittelwertsatz der Differentialrechnung)
+
+Sei $f : [a, b] \rightarrow \mathbb{R}$ eine Abbildung und $f$ ist differenzierbar auf $(a, b)$. Dann existiert ein Punkt $\xi \in (a, b)$ mit
+\begin{align*}
+    f'(\xi) = \frac{f(b)-f(a)}{b-a}
+\end{align*}
+
+% TODO: Visualisierung
+
+\mdf{Satz} (Ableitungsregeln)
+
+Seien $f, g$ differenzierbar in $x_0$ und $c \in \mathbb{R}$. Dann ist auch $f+g$ und $c\cdot f$ differenzierbar in $x_0$ und es gilt $(f+g)'(x_0)=f'(x_0)+g'(x_0)$. $(c\cdot f)'(x_0) = c\cdot f'(x_0)$. Außerdem sind $f\cdot g$, $\frac{f}{g}$ und $f \circ g$ differnzierbar und es gilt:
+\begin{description}
+    \item[Produktregel]{$(f\cdot g)'(x_0) = f'(x_0)\cdot g(x_0) + f\cdot g'(x_0)$}
+    \item[Quotientenregel]{$\left(\frac{f}{g}\right)'(x_0) = \frac{f'(x_0)g(x_0) - f(x_0)g'(x_0)}{(g(x_0))^2}$ für $g(x_0) \neq 0$}
+    \item[Kettenregel]{$(f\circ g)'(x_0) = f'(g(x_0)))\cdot g'(x_0)$}
+\end{description}
+
+\mdf{Satz}
+\begin{center}
+\begin{tabular}{c|c}
+$f(x)$ & $f'(x)$ \\ \hline
+$c$ & $0$ \\
+$x^n$ & $n \cdot x^{n-1}$ für $n \in \mathbb{Z}$ \\
+$x^a$ & $a \cdot x^{a-1}$ für $a > 0, a \in \mathbb{R}$ \\
+$\text{exp}(x)$ & $\text{exp}(x)$ \\
+$\text{ln}(x)$ & $\frac{1}{x}$ \\
+$\text{sin}(x)$ & $\text{cos}(x)$ \\
+$\text{cos}(x)$ & $-\text{sin}(x)$ \\
+$a^x$ & $a^x \cdot \text{ln}(a)$ für $a > 0$ \\
+$\text{log}_a(x)$ & $\frac{1}{x\cdot\text{ln}(a)}$ für $a > 0, a \neq 1$
+\end{tabular}
+\end{center}
+
+
+
+
+
+
+
+
+
+
