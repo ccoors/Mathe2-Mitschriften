@@ -119,7 +119,39 @@ Sei $f : [a, b] \rightarrow \mathbb{R}$ eine Abbildung und $f$ ist differenzierb
     f'(\xi) = \frac{f(b)-f(a)}{b-a}
 \end{align*}
 
-% TODO: Visualisierung
+\begin{center}
+\begin{tikzpicture}[thick,scale=0.7]
+  \path ( 1,4)        node[coordinate] (a1) {}
+        (10,5)        node[coordinate] (b1) {}
+        (a1) ++(0,-2) node[coordinate] (a2) {}
+        (b1) ++(0,-2) node[coordinate] (b2) {};
+
+  \path[draw,green] (a1) -- (b1);
+
+  \path[draw,red] (a2) --
+    node[coordinate,pos=0.05] (c1) {}
+    node[coordinate,pos=0.2 ] (c2) {}
+    node[coordinate,pos=0.4 ] (c3) {}
+    (b2);
+
+  \draw[densely dashed] (a1)
+    .. controls +(0,0) and  (c1)   .. (c2)
+    .. controls  (c3)  and +(-2,2) .. (b1);
+
+  \foreach \point/\text in {a1/a , b1/b , c2/\xi}
+    \draw[dotted]
+        let \p1 = (\point)
+      in
+           (0  ,\y1) node[anchor=east ] {$f(\text)$}
+        -- (\p1)
+        -- (\x1,0  ) node[anchor=north] {$\text$};
+
+  \draw[->] (-1.5, 0  ) -- (11,0  ) node[anchor=south east] {\textsf{x}};
+  \draw[->] (   0,-1.5) -- ( 0,6.5) node[anchor=north west] {\textsf{y}};
+\end{tikzpicture}\footnote{Quelle: jja, \url{http://tex.stackexchange.com/a/167824}, angepasst.}
+\end{center}
+
+
 
 \mdf{Satz} (Ableitungsregeln)
 
@@ -145,13 +177,3 @@ $a^x$ & $a^x \cdot \text{ln}(a)$ für $a > 0$ \\
 $\text{log}_a(x)$ & $\frac{1}{x\cdot\text{ln}(a)}$ für $a > 0, a \neq 1$
 \end{tabular}
 \end{center}
-
-
-
-
-
-
-
-
-
-

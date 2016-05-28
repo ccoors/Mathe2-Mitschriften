@@ -1,0 +1,141 @@
+\termin{27.05.2016}
+
+Sei $f : D \rightarrow \mathbb{R}$ differenzierbar an der Stelle $x_0 \in D$ mit der Tangente
+\begin{align*}
+	g(x) = f(x_0)+f'(x_0)(x-x_0)
+\end{align*}
+Wie unterscheiden sich $f$ und $g$?
+\begin{align*}
+	f(x) - g(x) &= f(x) - f(x_0) - f'(x_0)(x-x_0) \\
+	&= h(x)(x-x_0)
+\end{align*}
+$h : D \rightarrow \mathbb{R}$ Hilfsabbildung
+\begin{align*}
+	h(x) = \begin{cases}
+		\frac{f(x)-f(x_0)}{x-x_0} & \text{für }x\neq x_0 \\
+		0 &\text{für }x=x_0
+	\end{cases}
+\end{align*}
+Ist $f$ differenzierbar in $x_0$, so ist $h$ stetig in $x_0$.
+
+\mdf{Satz}
+Eine Abbildung $f : D \rightarrow \mathbb{R}$ ist in $x_0 \in D$ genau dann differenzierbar, wenn es eine in $x_0$ stetige Abbildung $h : D \rightarrow \mathbb{R}$ gibt mit $h(x) = 0$ für $x = x_0$ und
+\begin{align*}
+	f(x) &= f(x_0)+f'(x_0)(x-x_0) + h(x)(x-x_0) \\
+	&\quad\Uparrow\text{ Tangente}\hspace{2.2cm}\Uparrow\text{ Hilfsabbildung}% This is ugly. :/
+\end{align*}
+
+\bigskip
+\textbf{Bemerkung:} Ist $f$ differenzierbar und $f'$ selbst wieder differenzierbar, dann schreibt man
+\begin{align*}
+	(f'(x))' = f''(x)
+\end{align*}
+Analog:
+\begin{align*}
+	((f'(x))')' = f'''(x)
+\end{align*}
+
+Differenzieren hilft, Nullstellen zu finden.
+
+\textbf{Idee:} Nullstellen von Abbildungen der Form $g(x) = mx+b$ lasen sich leicht finden. Ableiten ist auch \glqq{}leicht\grqq{}.
+
+\bigskip
+\begr{Newton--Verfahren}
+
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily]
+\draw[step=1cm,gray,very thin] (-1.9,-0.9) grid (3.9,3.9);
+\draw[thick,->] (-2.5,0) -- (4.5,0) node[anchor=north west] {$x$};
+\draw[thick,->] (0,-1.5) -- (0,4.5) node[anchor=south east] {$y$};
+\foreach \x in {-2,-1,1,2,3,4}
+        \draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {};
+\foreach \y in {-1,1,2,3,4}
+        \draw (4pt,\y cm) -- (-4pt,\y cm) node[anchor=east] {};
+
+\draw [blue,thick] plot[variable=\x,domain=-1.6:3.0,smooth,samples=200] (\x,{((\x-1/2)*(\x-1/2))-0.5});
+
+\draw [green,thick] (1.207 cm,4pt) -- (1.207 cm,-4pt) node[anchor=north] {$x_0$};
+
+\draw [red,thick] (2.5 cm,4pt) -- (2.5cm,-4pt) node[anchor=north] {$x_1$};
+\draw [red,dashed] (2.5 cm,0pt) -- (2.5cm,3.5cm);
+\draw [red,thick] (1.25,-1.5cm) -- (3cm,5.5cm);
+
+\draw [black!60!green,thick] (1.625 cm,4pt) -- (1.625 cm,-4pt) node[anchor=north] {$x_2$};
+\draw [black!60!green,dashed] (1.625 cm,0pt) -- (1.625cm,0.765625cm);
+\draw [black!60!green,thick] (0.5cm,-1.7656cm) -- (2.625cm,3.01563cm);
+\end{tikzpicture}
+\end{center}
+
+Also: Sei $f : (a, b) \rightarrow \mathbb{R}$ und es gebe ein $x_0 \in (a, b)$ mit $f(x_0) = 0$. Wähle $x_1$ \glqq{}in der Nähe\grqq{} von $x_0$.
+\begin{align*}
+	f(x) \approx f(x_1) + f'(x_1)(x-x_1)
+\end{align*}
+Ist $f'(x_1) \neq 0$, setze
+\begin{align*}
+	x_2 = x_1 - \frac{f(x_1)}{f'(x_1)}
+\end{align*}
+(Nullstelle von $f(x_1)+f'(x_1)(x-x_1)$)
+
+und so weiter.
+\begin{align*}
+	x_{n+1} := x_n - \frac{f(x_n)}{f'(x_n)}
+\end{align*}
+
+Ist $x_1$ gut gewählt, so strebt die Folge $x_n$ gegen 0.
+
+\mdf{Satz}
+Sei $f : (a, b) \rightarrow \mathbb{R}$ zweimal stetig differenzierbar, $f(x_0) = 0$ für ein $x_0 \in (a, b)$ und $f' \neq 0$. Dann gibt es ein $\delta > 0$, sodass das Newton--Verfahren für alle $x_1 \in (x_0 - \delta, x_0 + \delta) \subseteq (a, b)$ konvergiert und es gilt
+\begin{align*}
+	|x_{n+1} - x| \leq c \cdot |x_n - x|
+\end{align*}
+für $n \in \mathbb{N}$ und $c$ konstant.
+
+\mdf{Beispiel}
+Betrachte $f : \mathbb{R} \rightarrow \mathbb{R}, f(x) = x^2 - 2$
+\begin{align*}
+	x_1 &= 1 \\
+	x_2 &= 1 - \frac{-1}{2} = 1,5 \\
+	\vdots \\
+	x_n &= \sqrt{2}
+\end{align*}
+
+\bigskip
+Noch besser als die Approximation von $f$ durch eine Tangente ist die Approximation durch ein Polynom.
+
+Suche Polynom $p_n$ vom Grad $n$ mit der Eigenschaft, dass die $k$-te Ableitung von $f = k$-te Ableitung des Polynoms.
+\begin{align*}
+	f^{(k)}(x_0) = p_n^{(k)}(x_0)
+\end{align*}
+für $x_0 \in D$ und $k = 1,\dots,n$.
+
+Für $n = 0$ ist das konstante Polynom $p_0(x_0) = f(x_0)$.
+
+Für $n = 1$ ist $p_1(x_0) = f(x_0)$ und $p_1'(x_0) = f'(x_0)$.
+
+\mdf{Definition}
+Ist $f : D \rightarrow \mathbb{R}$ $n$-Mal stetig differenzierbar auf $D = (a, b)$, dann heißt das Polynom
+\begin{align*}
+	&p_n : \mathbb{R} \rightarrow \mathbb{R} \\
+	&p_n(x, x_0) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k
+\end{align*}
+mit $x \in \mathbb{R}$ das \begr[Taylorpolynom]{Taylorpolynom vom Grad $n$ zu $f$ um den Entwicklungspunkt $x_0$}.
+
+\mdf{Beispiel}
+\begin{align*}
+	&f : \mathbb{R}_{>-1} \rightarrow \mathbb{R} \\
+	&f(x) = \frac{1}{1+x} \\
+	\text{Es gilt } &f'(x) = \frac{-1}{(1+x)^2} \\
+	&f''(x) = \frac{2}{(1+x)^3} \\
+	&f^{(n)}(x) = \frac{(-1)^n \cdot n!}{(1+x)^{n+1}} \\[1cm]
+	\text{Wähle } &x_0 = 0 \\
+	&p_1(x, 0) = 1-x \\
+	&p_2(x, 0) = 1-x + x^2 \\
+	&p_3(x, 0) = 1-x + x^2 - x^3 \\
+	&p_4(x, 0) = 1-x + x^2 - x^3 + x^4 \\[0.3cm]
+	&f(0,1) = f\left(\frac{1}{10}\right) = 0,90909090\dots \\[0.3cm]
+	&p_1(0,1) = 0,9 \\
+	&p_2(0,1) = 0,91 \\
+	&p_3(0,1) = 0,909 \\
+	&p_4(0,1) = 0,9091 \\
+	&p_5(0,1) = 0,90909
+\end{align*}
