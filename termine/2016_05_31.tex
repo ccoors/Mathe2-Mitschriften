@@ -1,0 +1,120 @@
+\termin{31.05.2016}
+
+\kapitel{Integralrechnung}
+
+\mdf{Definition}
+Es sei $I = (a, b) \subseteq \mathbb{R}$ und $f : I \rightarrow \mathbb{R}$ eine Abbildung. $F : I \rightarrow \mathbb{R}$ mit $F'(x) = f(x) \forall x \in I$ heißt \begr{Stammfunktion} von  $f$.
+
+\mdf{Beispiel}
+\begin{align*}
+	f(x) = 3x^2
+\end{align*}
+Gesucht ist $F(x)$ mit $F'(x) = 3x^2$.
+\begin{align*}
+	F(x) = x^3
+\end{align*}
+ist Stammfunktion von $f(x) = 3x^2$. $G(x) = x^3 + 1$ ist ebenfalls eine Stammfunktion von $f$. Es gibt zu $f$ unendlich viele Stammfunktionen.
+
+\mdf{Satz}
+Ist $f : I \rightarrow \mathbb{R}$ eine Abbildung und $F : I \rightarrow \mathbb{R}$ eine Stammfunktion von $f$ und $c$ eine reelle Zahl, dann ist auch
+\begin{align*}
+	F(x) + c
+\end{align*}
+eine Stammfunktion von $f$.
+
+\bigskip
+\textbf{Beweis:} Seien also $F$ und $G$ Stammfunktionen zu $f$, das heißt $F'(x) = G'(x) = f(x)$. Dann
+\begin{align*}
+	(F-G)'(x) = F'(x)-G'(x) = 0
+\end{align*}
+Das heißt $(F-G)(x)$ ist eine konstante Abbildung.
+
+\mdf{Definition}
+Die Menge aller Stammfunktionen zu einer Abbildung $f$ heißt \begr[Unbestimmtes Integral]{unbestimmtes Integral} von $f$ und man schreibt
+\begin{align*}
+	\int \! f(x) \, \mathrm{d}x = F(x) + c
+\end{align*}
+Wobei $F$ irgendeine Stammfunktion von $f$ ist und $c \in \mathbb{R}$ eine Konstante. $f$ heißt \begr{Integrand}, $x$ \begr{Integrationsvariable} und $c$ \begr{Integrationskonstante}.
+
+\mdf{Satz}
+Stammfunktionen einiger Abbildungen.
+\begin{center}
+	\begin{tabular}{c|c}
+		$f(x)$ & $F(x)$ \\ \hline
+		$c$ & $c\cdot x$ \\
+		$x^a$ & $\frac{x^{a+1}}{a+1}$ (für $a \neq -1$) \\
+		$x^{-1}$ & $\text{ln}(x)$ \\
+		$\mathrm{e}^x$ & $\mathrm{e}^x$ \\
+		$\text{sin}(x)$ & $-\text{cos}(x)$ \\
+		$\text{cos}(x)$ & $\text{sin}(x)$
+	\end{tabular}
+\end{center}
+
+\mdf{Satz} (Rechenregeln)
+
+Seien $f, g : I \rightarrow \mathbb{R}$ und $k \in \mathbb{R}$. Dann gilt
+\begin{align*}
+	&\int \! (f(x)+g(x)) \, \mathrm{d}x = \int \! f(x) \, \mathrm{d}x + \int \! g(x) \, \mathrm{d}x + c \\
+	&\int \! (k \cdot f(x)) \, \mathrm{d}x = k \cdot \int \! f(x) \, \mathrm{d}x + c
+\end{align*}
+
+\mdf{Satz} \begr[Partielle Integration]{(Partielle Integration)}
+\begin{align*}
+	&\int \! (f(x)g'(x)) \, \mathrm{d}x = f(x)g(x) - \int \! (f'(x)g(x)) \, \mathrm{d}x + c
+\end{align*}
+
+\mdf{Beispiel}
+\begin{align*}
+	&\int \! (x \cdot \text{cos}(x)) \, \mathrm{d}x
+\end{align*}
+Wähle
+\begin{align*}
+	f(x) &= x \\
+	g'(x) &= \text{cos}(x) \\
+	\text{dann} \\
+	f'(x) &= 1 \\
+	g(x) &= \text{sin}(x)
+\end{align*}
+und
+\begin{align*}
+	&\int \! (x \cdot \text{cos}(x)) \, \mathrm{d}x = x \cdot \text{sin}(x) - \int \! \text{sin}(x) \, \mathrm{d}x = x \cdot \text{sin}(x) + \text{cos}(x) + c
+\end{align*}
+Man sollte $f$ und $g'$ geschickt wählen, denn
+\begin{align*}
+	f(x) &= \text{cos}(x) \\
+	g'(x) &= x \\
+	f'(x) &= -\text{sin}(x) \\
+	g(x) &= \frac{x^2}{2} \\
+	&\Rightarrow \int \! x \cdot \text{cos}(x) \, \mathrm{d}x = \text{cos}(x) \cdot \frac{x^2}{2} - \int \! -\text{sin}(x) \cdot \frac{x^2}{2} \, \mathrm{d}x
+\end{align*}
+ist komplizierter geworden.
+
+\mdf{Satz} (Integration durch Substitution)
+\begin{align*}
+	\int \! (f(g(x))g'(x)) \, \mathrm{d}x = \int \! (f(u)) \, \mathrm{d}u + c
+\end{align*}
+mit $u = g(x)$.
+
+\mdf{Beispiel}
+\begin{align*}
+	\int \! (\text{sin}(x^2)\cdot 2x) \, \mathrm{d}x
+\end{align*}
+mit
+\begin{align*}
+	f(x) &= \text{sin}(x) \\
+	g(x) &= x^2 \\
+	g'(x) &= 2x
+\end{align*}
+Setze $u := x^2$, dann
+\begin{align*}
+	&\frac{du}{dx} = 2x \Rightarrow dx = \frac{du}{2x} \\
+	&\Rightarrow \int \! (\text{sin}(x^2) \cdot 2x) \, \mathrm{d}x = \int \! (\text{sin}(u) \cdot 2x) \, \frac{\mathrm{d}u}{2x} = \int \! (\text{sin}(u) \, \mathrm{d}u = -\text{cos}(u) + c = -\text{cos}(x^2) + c \\
+	&F(x) = -\text{cos}(x^2) \\
+\end{align*}
+Setze $G(x) = \text{cos}(x)$, $H(x) = x^2$.
+\begin{align*}
+	F(x) &= -G(H(x)) \\
+	F'(x) &= -G'(H(x))\cdot H'(x) \\
+	&= -(-\text{sin}(x^2)\cdot 2x) = \text{sin}(x^2) \cdot 2x
+\end{align*}
+

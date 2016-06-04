@@ -32,6 +32,7 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
 \usetikzlibrary{shapes.misc}
 \usetikzlibrary{angles}
 \usetikzlibrary{quotes}
@@ -41,6 +42,7 @@
 \usetikzlibrary{matrix}
 \usetikzlibrary{calc}
 \tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},cross/.default={1pt}}
+\tikzset{schraffiert/.style={pattern=north east lines,pattern color=#1},schraffiert/.default=red}
 
 \usepackage{titlesec}
 \usepackage{lipsum}
@@ -94,7 +96,7 @@
 
 \usepackage{url}
 \def\UrlBreaks{\do\/\do-}
-\usepackage[pdftex,breaklinks]{hyperref}
+\usepackage[pdftex,breaklinks,hidelinks]{hyperref}
 \hypersetup{
   pdftitle    = {MG2 Mitschrift},
   pdfsubject  = {Mitschrift},
@@ -173,6 +175,10 @@
 \input{termine/2016_05_24.tex}
 
 \input{termine/2016_05_27.tex}
+
+\input{termine/2016_05_31.tex}
+
+\input{termine/2016_06_03.tex}
 
 \printindex
 

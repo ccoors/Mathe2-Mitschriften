@@ -1,0 +1,180 @@
+\termin{03.06.2016}
+
+\bigskip
+\textbf{Nun:} Bestimmte Integration
+
+\textbf{Anschauung:} Flächeninhalt, der vom Graphen einer Abbildung und der $x$-Achse auf einem Intervall eingeschlossen wird.
+
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily,scale=1.5,decoration=brace]
+\draw [schraffiert] (1,0) rectangle (4,1);
+
+\draw[->] (-0.25,0) -- (5,0) node[anchor=north west] {$x$};
+\draw[->] (0,-0.25) -- (0,1.5) node[anchor=south east] {$f(x)$};
+
+\draw[-,thick,blue] (-0.15,1) -- (4.85,1) node[anchor=south east] {$f(x) = c$};
+
+\draw (1,0.1) -- (1,-0.1) node[anchor=north] {$a$};
+\draw (4,0.1) -- (4,-0.1) node[anchor=north] {$b$};
+\end{tikzpicture}
+
+Flächeninhalt: $c \cdot (b - a)$
+
+\bigskip
+\begin{tikzpicture}[>=triangle 45,font=\sffamily,scale=1.5,decoration=brace]
+\draw [schraffiert] (1,0) -- (1,0.4605) -- (4,1.2705) -- (4,0) -- cycle;
+
+\draw[->] (-0.25,0) -- (5,0) node[anchor=north west] {$x$};
+\draw[->] (0,-0.25) -- (0,2) node[anchor=south east] {$f(x)$};
+
+\draw[-,thick,blue] (-0.15,0.15) -- (4.85,1.5) node[anchor=south east] {$f(x) = m\cdot x+c$};
+
+\draw (1,0.1) -- (1,-0.1) node[anchor=north] {$a$};
+\draw (4,0.1) -- (4,-0.1) node[anchor=north] {$b$};
+\end{tikzpicture}
+
+Flächeninhalt:
+\begin{align*}
+	(f(a)+f(b))\cdot (b-a)\cdot \frac{1}{2} &= (ma + c) + (mb + c)(b - a)\frac{1}{2} \\
+	&= \frac{1}{2} (m(a+b)+2c)(b-a) \\
+	\text{Nach 3. Binomischer Formel } &= \frac{1}{2} m (b^2 - a^2)+c(b-a)
+\end{align*}
+
+\bigskip
+\begin{tikzpicture}[>=triangle 45,font=\sffamily,scale=1.5,decoration=brace]
+\draw [schraffiert] (1,0) -- (1,0.51) -- (1.5,0.53375) -- (2,0.58) -- (2.5,0.65625) -- (3,0.77) -- (3.5,0.92875) -- (4,1.14) -- (4,0) -- cycle;
+% Jajaja. :P Es funktioniert gut genug, die Unebenheiten werden von der dicken blauen Linie von f(x) überdeckt.
+
+\draw[->] (-0.25,0) -- (5,0) node[anchor=north west] {$x$};
+\draw[->] (0,-0.25) -- (0,2) node[anchor=south east] {$f(x)$};
+
+\draw[domain=-0.15:4.85,smooth,variable=\x,blue,thick] plot ({\x},{0.5+(\x*\x*\x)*0.01}) node[anchor=south east] {$f(x) = ax^3 + bx^2 + cx + d$};
+
+\draw (1,0.1) -- (1,-0.1) node[anchor=north] {$a$};
+\draw (4,0.1) -- (4,-0.1) node[anchor=north] {$b$};
+\end{tikzpicture}
+
+Flächeninhalt?
+\end{center}
+
+\bigskip
+\textbf{Naive Idee:} Unterteilung des Intervalls $[a, b]$ in $n$ Teilintervalle der Länge $\Delta n = \frac{b-a}{n}$
+\begin{align*}
+	F_n &= \sum_{k=0}^{n-1} f(x_k) \cdot \Delta n \\
+	\text{mit } &x_0 = a \\
+	&x_1 = a + \Delta n \\
+	&x_2 = a + 2 \Delta n \\
+	&\vdots \\
+	&x_k = a + k \Delta n \\
+	&\vdots \\
+	&x_n = a + n \Delta n = b
+\end{align*}
+
+\begin{center}
+\begin{tikzpicture}[>=triangle 45,font=\sffamily,scale=1.5,decoration=brace]
+\filldraw [fill=red, draw=black] (1,0) rectangle (1.5,0.28);
+\filldraw [fill=red, draw=black] (1.5,0) rectangle (2,0.35125);
+\filldraw [fill=red, draw=black] (2,0) rectangle (2.5,0.49);
+\filldraw [fill=red, draw=black] (2.5,0) rectangle (3,0.71875);
+\filldraw [fill=red, draw=black] (3,0) rectangle (3.5,1.06);
+\filldraw [fill=red, draw=black] (3.5,0) rectangle (4,1.53625);
+\draw (4,0) -- (4,2.17);
+
+\node at (2,3) {Fehlbetrag};
+\draw [->] (1.5,2.8) -- (1.4,0.3);
+\draw [->] (1.7,2.8) -- (1.9,0.42);
+\draw [->] (1.9,2.8) -- (2.4,0.6);
+\draw [->] (2.1,2.8) -- (2.9,0.85);
+\draw [->] (2.3,2.8) -- (3.4,1.2);
+\draw [->] (2.5,2.8) -- (3.9,1.65);
+
+
+\draw[->] (-0.25,0) -- (5,0) node[anchor=north west] {$x$};
+\draw[->] (0,-0.25) -- (0,4) node[anchor=south east] {$f(x)$};
+
+\draw[domain=-0.15:4.85,smooth,variable=\x,blue,thick] plot ({\x},{0.25+(\x*\x*\x)*0.03});
+
+\draw (1,0.1) -- (1,-0.1) node[anchor=north] {$a$};
+\draw (4,0.1) -- (4,-0.1) node[anchor=north] {$b$};
+\end{tikzpicture}
+\end{center}
+Definiere Folge von Flächeninhalten:
+\begin{align*}
+	F_n = \sum_{k=0}^{n-1} f(x_k)\frac{b-a}{n}
+\end{align*}
+und betrachte Grenzwert:
+\begin{align*}
+	\lim\limits_{n \to \infty} F_n
+\end{align*}
+ist der gesuchte Flächeninhalt, falls der Grenzwert existiert.
+
+\mdf{Definition}
+Sei $f$ eine auf $[a, b]$ stetige Abbildung. Setze $\Delta n = \frac{b-a}{n}$ und $x_k = a + k \Delta n$ für $k = 0,\dots,n$. Dann konvergiert die Folge der Rechtecksflächen
+\begin{align*}
+	F_n = \sum_{k=0}^{n-1} f(x_k)\Delta n
+\end{align*}
+Man nennt den Grenzwert \begr[Bestimmtes Integral]{bestimmtes Integral} von $f$ auf dem Intervall $[a, b]$ und man schreibt
+\begin{align*}
+	\int_a^b \! f(x) \, \mathrm{d}x = \lim\limits_{n \to \infty} \sum_{k=0}^{n-1} f(x_n) \Delta n
+\end{align*}
+Dabei heißt $f(x)$ \begr{Integrand}, $x$ \begr{Integrationsvariable} und $[a, b]$ \begr{Integrationsintervall}.
+
+\bigskip
+Flächen oberhalb der $x$--Achse gehen positiv, Flächeninhalte unterhalb der $x$--Achse negativ in das Integral ein.
+
+\medskip
+Es gilt für jedes $c \in (a, b)$:
+\begin{align*}
+	\int_a^b \! f(x) \, \mathrm{d}x = \int_a^c \! f(x) \, \mathrm{d}x + \int_c^b \! f(x) \, \mathrm{d}x
+\end{align*}
+Außerdem:
+\begin{align*}
+	\int_a^a \! f(x) \, \mathrm{d}x = 0
+\end{align*}
+und
+\begin{align*}
+	\int_a^b \! f(x) \, \mathrm{d}x = -\int_b^a \! f(x) \, \mathrm{d}x
+\end{align*}
+
+\mdf{Satz} (Hauptsatz der Differential-- und Integralrechnung/Fundamentalsatz der Analysis)
+
+Sei $f$ stetig auf $[a, b]$ und $F$ irgendeine Stammfunktion von $f$. Dann gilt
+\begin{align*}
+	\int_a^b \! f(x) \, \mathrm{d}x = F(b) - F(a) = F(x)\bigg\vert_a^b
+\end{align*}
+
+\mdf{Beispiel}
+\begin{align*}
+	f(x) &= mx+c \\
+	F(x) &= \frac{m}{2}x^2 + cx \\
+	\int_a^b \! f(x) \, \mathrm{d}x &= F(b) - F(a) = \frac{m}{2}b^2 + cb - \left(\frac{m}{2}a^2 + ca\right) \\
+	&= \frac{m(b^2-a^2)}{2} + c(b-a)
+\end{align*}
+
+\mdf{Satz}
+
+Partielle Integration:
+\begin{align*}
+	\int_a^b \! f(x)g'(x) \, \mathrm{d}x &= f(x)g(x)\bigg\vert_a^b - \int_a^b \! f'(x)g(x) \, \mathrm{d}x \\
+\end{align*}
+
+Substitution:
+\begin{align*}
+	\int_a^b \! f(x)g'(x) \, \mathrm{d}x &= \int_{g(a)}^{g(b)} \! f'(u) \, \mathrm{d}u\text{ mit }u = g(x) \\
+\end{align*}
+\textbf{Wichtig:} Grenzen anpassen nicht vergessen!
+
+\mdf{Beispiel}
+\begin{align*}
+	\int_0^1 \! \text{exp}(x) \, \mathrm{d}x &= x\cdot \text{exp}(x)\bigg\vert_0^1 - \int_0^1 \! 1\cdot\text{exp}(x) \, \mathrm{d}x \\
+	&= 1\cdot\text{exp}(1)-0\cdot\text{exp}(0) - x\cdot\text{exp}(x)\bigg\vert_0^1 \\
+	&= \text{exp}(1) - \text{exp}(1) + \text{exp}(0) = \text{exp}(0) = 1
+\end{align*}
+
+\bigskip
+\begin{align*}
+	\int_0^\pi \! \text{sin}(x^2) \, \mathrm{d}x &= \frac{1}{2}\int_0^{\pi^2} \! \text{sin}(u) \, \mathrm{d}u = -\frac{1}{2}\text{cos}(u)\bigg\vert_0^{\pi^2} = \frac{1}{2}-\frac{\text{cos}(\pi^2)}{2} \approx 0,951343
+\end{align*}
+
+
+
