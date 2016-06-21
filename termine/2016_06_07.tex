@@ -1,0 +1,89 @@
+\termin{07.06.2016}
+
+\kapitel{Zufall und Wahrscheinlichkeiten}
+
+\mdf{Definition}
+Ein \begr[Stochastischer Vorgang]{stochastischer Vorgang} ist charakterisiert durch
+\begin{itemize}
+    \item{Es gibt mehrere mögliche Ergebnisse. Die Menge $\Omega$ aller Ergebnisse heißt \begr[Ergebnisraum]{Ergebnis-} oder \begr{Stichprobenraum}}
+    \item{Das Ergebnis ist nicht exakt vorhersagbar und nicht reproduzierbar}
+    \item{Der Vorgang ist (prinzipiell oder in Gedanken) wiederholbar}
+\end{itemize}
+Eine Teilmenge $A \subseteq \Omega$ heißt \begr{Ereignis}. Gilt $|A| = 1$, \begr{Elementarereignis}. Man sagt: Das Ereignis $A$ ist beim Ergebnis $\omega \in \Omega$ eingetreten, falls $\omega \in A$.
+
+\mdf{Beispiel}
+\begin{center}
+\begin{tabular}{l|l|l}
+\textbf{Stochastischer Vorgang} & \textbf{Ergebnisse} & \textbf{Ereignisse (Beispiel)} \\ \hline
+Werfen eines Würfels & Zahlen: $1, 2, 3, 4, 5, 6$ & Gerade Zahlen: $\{2, 4, 6\}$ \\
+Roulette & $0, 1, \dots, 36$ & Rot: $\{1, 3, \dots, 34, 36\}$ \\
+\glqq{}Sonntagsfrage\grqq{} & Alle zugelassenen Parteien & Ampel--Koalition (SPD, FDP, Grüne) \\
+Messung eines Gewichts & Positive Zahlen & Übergewicht, Untergewicht, \dots
+\end{tabular}
+\end{center}
+Zufall quantifizieren: Jedem Ereignis $A$ eine Zahl $P(A)$ aus dem Intervall von $0 = 0\%{}$ bis $1 = 100\%{}$: \begr{Wahrscheinlichkeit} für das Eintreten von $A$.
+
+\mdf{Definition}
+Eine \begr{Zufallsvariable} $X$ ist ein durch Zahlen messbarer Aspekt des Ergebnisses, das heißt jedem $\omega \in \Omega$ ist eine Zahl $x = X(\omega)$ zugeordnet. Ein Ergebnis für eine Zufallsvariable $X$ ist durch eine Zahlenmenge $A$ gegeben und wird geschrieben $\{X \in A\}$.
+
+$P\{X \in A\}$ ist die Wahrscheinlichkeit, dass $X$ in $A$ liegt.
+
+Ist $A = [a, b] \subseteq \R$, schreibt man auch $P\{X \in A\} = P\{X \in [a, b]\} = P\{a \leq X \leq B\}$.
+
+Eine Zufallsvariable heißt \begr[Diskretheit]{diskret}, falls ihre Werte isoliert sind und sich abzählen lassen: $x_1, x_2, \dots$. Eine Zufallsvariable heißt \begr[Stetigkeit (Zufallsvariable)]{stetig}, falls die möglichen Werte ein Kontinuum bilden, das heißt alle Werte eines Intervalls aus $\R$.
+
+\mdf{Satz}
+Eigenschaften von Wahrscheinlichkeiten:
+\begin{description}
+    \item[(1)]{Normierung:
+    \begin{align*}
+        A \subseteq \Omega & & A \subseteq \R \\
+        0 \leq P(A) \leq 1 & \qquad\text{bzw.}\qquad & 0 \leq P\{X \in A\} \leq 1
+    \end{align*}}
+    \item[(2)]{Das sichere Ereignis tritt stets ein:
+    \begin{align*}
+        P(\Omega) = 1 & \qquad\text{bzw.}\qquad & P\{X \in \R\} = 1
+    \end{align*}}
+    \item[(3)]{Das unmögliche Ereignis $\varnothing$ tritt nie ein:
+    \begin{align*}
+        P(\varnothing) = 0 & \qquad\text{bzw.}\qquad & P\{X \in \varnothing\} = 0
+    \end{align*}}
+    \item[(4)]{Das zu $A$ komplementäre Ereignis $CA = \{\omega \in \Omega \,|\, \omega \not \in A\}$ hat die Wahrscheinlichkeit:
+    \begin{align*}
+        P(CA) = 1 - P(A) & \qquad\text{bzw.}\qquad & P\{X \not \in A\} = 1 - P\{X \in A\}
+    \end{align*}}
+    \item[(5)]{Für $A \subseteq B$ gilt:
+    \begin{align*}
+        P(A) \leq P(B) & \qquad\text{bzw.}\qquad & P\{X \in A\} \leq P\{X \in B\}
+    \end{align*}}
+    \item[(6)]{\begin{align*}
+        P(A \cup B) = P(A) + P(B) - P(A \cap B) & \qquad\text{bzw.}\qquad & P\{X \in A\text{ oder }X \in B\} = \\
+        & & P\{X \in A\} + P\{X \in B\} \\
+        & & - P\{X \in A\text{ und }X \in B\}
+    \end{align*}}
+    \item[(7)]{Ist $A = \{a_1, a_2, \dots, a_n\}$ mit $a_i \neq a_j$ für $i \neq j$, dann gilt:
+    \begin{align*}
+        P(A) = \sum_{i = 1}^{n} P\{a_i\} & \qquad\text{bzw.}\qquad & P\{X \in A\} = \sum_{i = 1}^{n} P\{X = a_i\}
+    \end{align*}}
+\end{description}
+
+\mdf{Beispiel}
+Lotto: 6 aus 49. Es gibt $\begin{pmatrix}49\\6\end{pmatrix} \approx 1,4\cdot 10^7$ verschiedene Ergebnisse einer Ziehung. Zum Beispiel $\omega = \{4, 9, 16, 25, 36, 49\},\enspace P(\omega) = \frac{1}{1,4\cdot 10^7}$. Nach 5 gezogenen Zahlen haben Sie bereits 5 Richtige: $\{4, 9, 16, 36, 49\}$. Die Wahrscheinlichkeit für 6 Richtige ist $\frac{1}{44} \approx 0,023 = 2,3\%{}$.
+
+\bigskip
+Allgemein: $A$ und $B$ seien zwei Ereignisse. Wie groß ist die Wahrscheinlichkeit von $A$, unter der Bedingung dass $B$ eintritt? Dies nennt man \begr[Bedingte Wahrscheinlichkeit]{bedingte Wahrscheinlichkeit} $P(A|B)$ von $A$ unter der Bedingung $B$.
+
+\mdf{Satz}
+\begin{align*}
+    P(A|B) = \frac{P(A \cap B)}{P(B)},\text{ mit }P(B) > 0
+\end{align*}
+
+\mdf{Beispiel} (Roulette)
+
+Für $A$ = 2. Dutzend und $B$ = 3. Kolonne ergibt sich $P(A) = \frac{12}{37} = P(B)$, $P(A \cap B) = \frac{4}{37}$, $P(A|B) = \frac{\frac{4}{37}}{\frac{12}{37}} = \frac{1}{3}$.
+
+\mdf{Satz} (Satz von Bayes)
+\begin{align*}
+    P(B|A) = \frac{P(A|B) \cdot P(B)}{P(A)}\text{ für }P(A) > 0
+\end{align*}
+

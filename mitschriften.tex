@@ -46,11 +46,11 @@
 
 \usepackage{titlesec}
 \usepackage{lipsum}
-
 \usepackage{natbib}
-
+\usepackage{filecontents}
 \usepackage{textcomp}
-\usepackage{pgfplots}
+\usepackage{pgfplots, pgfplotstable}
+\usepgfplotslibrary{statistics}
 \pgfplotsset{compat=1.12}
 
 \bibliographystyle{plainnat}
@@ -65,6 +65,8 @@
 
 \newcommand{\cosah}[0]{\text{cos}\left(\frac{\alpha}{2}\right)}
 \newcommand{\sinah}[0]{\text{sin}\left(\frac{\alpha}{2}\right)}
+
+\newcommand{\R}[0]{\mathbb{R}}
 
 \titleformat{\section}{\LARGE\bfseries}{\textbf{Kapitel \thesection:}}{1em}{}
 \titleformat{\subsection}{\normalfont\bfseries}{\textbf{\Roman{subsection})}}{1em}{}
@@ -136,6 +138,8 @@
 \section*{Anmerkungen}
 \textbf{Diese Mitschriften können die persönliche Anwesenheit in der Vorlesung nicht ersetzen!} Bei diesem Dokument handelt es sich hauptsächlich um mehr oder weniger exakte Abschriften von der Tafel, teilweise mit persönlichen Anmerkungen und Notizen. Eventuelle Fehler in diesem Dokument sind nicht ganz auszuschließen. Ich bemühe mich jedoch, ein möglichst gutes Skript zu erstellen. Fehler können mir gerne gemeldet werden, zum Beispiel persönlich an mich oder im zugehörigen GitHub Repo als Issue (\url{https://github.com/ccoors/Mathe2-Mitschriften}).
 
+Die Mitschriften vom 07.06.2016 bis einschließlich 17.06.2016 wurden nach Mitschriften von Kommilitonen angefertigt, dort ist besonders auf Fehler und Ungenauigkeiten zu achten.
+
 \vspace{0.3cm}
 
 \begin{center}
@@ -179,6 +183,10 @@
 \input{termine/2016_05_31.tex}
 
 \input{termine/2016_06_03.tex}
+
+\input{termine/2016_06_07.tex}
+
+\input{termine/2016_06_10.tex}
 
 \printindex
 
