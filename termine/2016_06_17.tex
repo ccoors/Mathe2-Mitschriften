@@ -1,0 +1,45 @@
+\termin{17.06.2016}
+
+\mdf{Satz}
+Für wachsenden Umfang $a$ steht die Binomialverteilung $B(n;p)$ gegen die Normalverteilung $N(\mu;\sigma ^2)$ mit $\mu = n \cdot p$ und $\sigma = \sqrt{npq}$, wobei $q = 1 - p$. Für großes $n$ erhält man die \begr{Normalapproximation} der Binomialverteilung für $B(n;p)$-verteiltes $X$:
+\begin{itemize}
+    \item{$P\{X \leq k\} \approx \Phi(u)$ mit $u = \frac{1}{\sigma}\left(k + \frac{1}{2} \mu\right)$}
+    \item{$P\{X \geq k\} \approx \Phi(v)$ mit $v = \frac{1}{\sigma}\left(k - \frac{1}{2} \mu\right)$}
+    \item{$P\{m \leq X \leq k\} \approx \Phi(u) - \Phi(v)$ mit $u$, $v$ wie oben}
+\end{itemize}
+
+Die \begr{Stetigkeitskorrektur} ist notwendig, um die Binomialverteilung genau approximieren zu können.
+
+\mdf{Faustregel}
+Normalapproximation von $B(n;p)$-verteilten $X$ ist nur sinnvoll, wenn $\sigma ^2 = npq \geq 5$ ist.
+
+\kapitel{Erwartungswert, Varianz und Standardabweichung}
+
+In der Praxis: Genaue Verteilung von $X$ nicht so wichtig, aber bestimmte Parameter. Insbesondere interessant: Wo liegen die $X$-Werte \glqq{}im Mittel\grqq{}, das heißt welche Werte nimmt $X$ \glqq{}im Durchschnitt\grqq{} an? Wie stark streuen die Werte von $X$ um dieses Mittel?
+
+\mdf{Beispiel}
+Lotto \glqq{}6 aus 49\grqq{}, wie viele Richtige hat ein Spieler \glqq{}im Schnitt\grqq{}? Naiver Ansatz: Arithmetisches Mittel von 0 Richtigen bis 6 Richtigen $a := \frac{1}{k}\sum_{n = 0}^k n = \frac{1}{7} (0 + 1 + 2 + 3 + 4 + 5 + 6) = 3 \Rightarrow$ Falsch. $0 - 6$ Richtige sind verschieden wahrscheinlich.
+
+Betrachte $x_1, x_2, \dots, x_n$: stochastisch unabhängige Wahl von $X$. Die $x_i$ haben alle denselben Träger $T = \{a_1, \dots, a_k\}$.
+
+\bigskip
+Sei $h_k^{(N)} = \left|\left\{i=1,\dots,N\,\middle|\,X_i=a_k\right\}\right|$ die absolute Häufigkeit des Wertes $a_k$ in der Stichprobe $(X_1,\dots,X_N)$. Dann ist
+\begin{align*}
+    \overline{X}^{(N)} := \frac{1}{N} \sum_{i = 1}^N X_i = \frac{1}{N} \sum_{l = 1}^K h_l^{(N)} a_l = \sum_{l = 1}^K P_l^{(N)} a_l
+\end{align*}
+mit $P_l^{(N)} = \frac{1}{N} h_l^{(N)}$ die relative Häufigkeit von $a_l$ in $X_1,\dots,X_N$.
+
+Für $N \rightarrow \infty$ strebt $P_l^{(N)}$
+
+
+
+
+
+
+
+
+
+
+
+
+

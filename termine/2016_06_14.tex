@@ -1,0 +1,93 @@
+\termin{14.06.2016}
+
+\kapitel{Stetige Zufallsvariablen}
+Stetig: Träger von $X$ ist eine kontinuierliche Menge, das heißt in der Regel eine Teilmenge von $\R$. Oft ist $T = \R$ oder $T = (0, \infty)$.
+
+\medskip
+Problem: Für einzelne Realisierungen $x \in T$ lassen sich $P\{X = x\}$ keine positiven Werte zuweisen.
+
+\medskip
+Lösung: Betrachten nur Wahrscheinlichkeiten für Intervalle $(a, b]$
+
+\mdf{Definition}
+Sei $X$ eine stetige Zufallsvariable. Eine Abbildung $f:T \rightarrow [0, \infty), x \mapsto f(x)$ mit der Eigenschaft
+\begin{align*}
+    P\{a < x \leq b\} = \int_a^b \! f(x) \, \mathrm{d}x
+\end{align*}
+heißt \begr{Dichtefunktion} von $X$. Man setzt $f(x) = 0$ für alle $x \not \in T$. Damit ist $f(x)$ auf ganz $\R$ definiert.
+
+\mdf{Lemma}
+Für die Dichte gilt:
+\begin{align*}
+    P\{X \in \R\} = \int_{-\infty}^{\infty} \! f(x) \, \mathrm{d}x = 1
+\end{align*}
+Wir betrachten nur stetige Dichten. Dann gilt $P\{X = a\} = 0 \quad \forall a \in \R$
+
+\mdf{Lemma}
+Für stetige Zufallsvariablen $X$ gilt 
+\begin{align*}
+    P\{a < x \leq b\} = P\{a \leq x \leq b\} = P\{a \leq x < b\} = P\{a < x < b\}
+\end{align*}
+
+\mdf{Definition}
+Für stetiges $X$ mit Dichtefunktion $f$ heißt
+\begin{align*}
+    F(a) = \int_{-\infty}^a \! f(x) \, \mathrm{d}x
+\end{align*}
+\begr{Verteilungsfunktion} von $X$.
+
+\mdf{Lemma}
+
+$F'(x) = f(x)$ für $x \in T$, $P\{a < x \leq b\} = F(b) - F(a)$, $P\{X > a\} = 1 - F(a)$
+
+\mdf{Definiton}
+Die Dichte der gaußschen Normalverteilung $N(\mu, \sigma ^2)$ ist für alle $x \in \R$ gegeben durch
+\begin{align*}
+    f(x) = \frac{1}{\sigma \cdot \sqrt{2 \pi}} \cdot \text{exp}\left(-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right)
+\end{align*}
+Dabei ist $\mu$ ein Lageparameter, der sogenannte \begr{Erwartungswert} und $\sigma > 0$ ist ein positiver Skalenparameter, die sogenannte \begr{Standardabweichung}.
+
+\mdf{Definition}
+Die Normalverteilung $N(\mu, \sigma^2)$ mit $\mu = 0$ und $\sigma = 1$ heißt \begr{Standardnormalverteilung}. Sie hat die Dichte
+\begin{align*}
+    f(x) = \frac{1}{\sqrt{2 \pi}} \cdot \text{exp}\left(-\frac{1}{2} x^2\right)
+\end{align*}
+und die Verteilungsfunktion
+\begin{align*}
+    \Phi (a) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^a \! f(x) \, \mathrm{d}x = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^a \! \text{exp}\left(-\frac{1}{2} x^2\right) \, \mathrm{d}x
+\end{align*}
+Dieses Integral lässt sich nicht explizit bestimmen.
+
+\mdf{Lemma}
+Ist $X$ $N(\mu, \sigma ^2)$-verteilt, dann lässt sich $X$ äquivalent mit $u = \frac{1}{\sigma} \cdot (x - \mu)$ standardisieren:
+\begin{align*}
+    P\{X \leq x\} &= \Phi(u) \text{ mit } u = \frac{1}{\sigma} \cdot (x - \mu) \\
+    P\{X \geq x\} &= \Phi(-u) = 1 - \Phi(u) \text{ und} \\
+    P\{x_1 \leq X \leq x_2\} &= \Phi(u_2) - \Phi(u_1) \text{ mit } u_1, u_2 = \frac{1}{\sigma} \cdot (x_{1, 2} - \mu)
+\end{align*}
+
+\mdf{Beispiel}
+Wirkstoffgehalt von Tabletten. Anteil $X$ in mg an Wirkstoff pro Tablette ist (in guter Näherung) $N(\mu, \sigma ^2)$-verteilt. Mit $\mu = 300\text{mg}$ und $\sigma = 20\text{mg}$ ergibt sich:
+\begin{description}
+    \item[Stark unterdosiert]{$P\{X \leq 250\} = \Phi(-2,5) = 0,63\%{}$}
+    \item[Nicht unterdosiert]{$P\{X \geq 300\} = \Phi(0) = 50\%{}$}
+    \item[Nicht stark fehldosiert]{$P\{260 \leq X \leq 340\} = \Phi(2) - \Phi(-2) = 95,44\%{}$}
+\end{description}
+
+\mdf{Lemma}
+Für $N(\mu, \sigma ^2)$-verteiltes $X$ ist die Verteilung symmetrisch um $\mu$, das heißt
+\begin{align*}
+    P\{x \leq \mu - a\} = P\{x \geq \mu + 1\} \quad \forall a \in \R
+\end{align*}
+und es gilt:
+\begin{align*}
+    P\{|x - \mu| \leq \sigma\} &\approx 68,3\%{} \\
+    P\{|x - \mu| \leq 2 \sigma\} &\approx 95,4\%{} \\
+    P\{|x - \mu| \leq 3 \sigma\} &\approx 99,7\%{} \\
+    P\{|x - \mu| \leq 4 \sigma\} &\approx 99,9997\%{}
+\end{align*}
+
+\mdf{Satz}
+\begin{onehalfspace}
+Ist $X$ wie $N(\mu _X, \sigma _X^2)$-verteilt, dann ist $Y = a+bX$ wie folgt verteilt: $N(\mu _Y, \sigma _Y^2)$ mit $\mu _Y = a + b\mu _X$ und $\sigma _Y^2 = b^2 \sigma _X^2$. Ist $X_1$ mit $N(\mu _1, \sigma _1^2)$-Verteilung und $X_2$ mit $N(\mu _2, \sigma _2^2)$-Verteilung, dann ist $X_1 + X_2$ wie $N(\mu, \sigma ^2)$ verteilt. Mit $\mu = \mu _1 + \mu _2$ und $\sigma ^2 = \sigma _1^2 + \sigma _2^2$.
+\end{onehalfspace}
